@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" class="basic">
+<head>
+    <title>메인</title>
+    <link rel="stylesheet" type="text/css" href="css/total.css" media="screen" />
+
+    <!-- Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#trigger').click(function () {
+                $('#test').load("join.html");
+                return false;
+            });
+        });
+    </script>
+</head>
+<body class="basic">
+    <!--Header-->
+    <div style="width: 100%; background-color: #fafafa; height: 25px;">
+        <div style="width: 1080px; text-align: right; padding-top: 3px; font-size: 8pt; margin: auto;">
+            <span class="top_menu">
+                <a href="" class="basic" id="trigger">로그인</a>
+            </span>
+            <span class="top_divide_bar"></span>
+            <span class="top_menu">
+                <a href="" class="basic" id="trigger">회원가입</a>
+            </span>
+            <span class="top_divide_bar"></span>
+            <span class="top_menu"><a href="" class="basic">마이페이지</a></span>
+            <span class="top_divide_bar"></span>
+            <span class="top_menu"><a href="" class="basic">주문배송조회</a></span>
+            <span class="top_divide_bar"></span>
+            <span class="top_menu"><a href="" class="basic">장바구니</a></span>
+        </div>
+    </div>
+    <!--Header Menu-->
+    <div class="Wrapper">
+        <div class="logo" width="240px">
+            <a href="main.html"><img class="basic" width="240" height="80" src="main_logo.png" /></a>
+        </div>
+        <div class="Header_blank" width="460px">
+            <img class="basic" src="" width="460" height="80" />
+        </div>
+        <div class="board_list" width="380px">
+            <div class="board_icon">
+                <a href="list.php?id=QnA"><img class="basic" src="icon/icon_qna.png" width="80" height="80" onmouseover="this.src='/icon/icon_qna_on.png'" onmouseout="this.src='/icon/icon_qna.png'"/></a>
+            </div>
+            <div class="board_divide_bar"></div>
+            <div class="board_icon">
+                <a href="list.php?id=After"><img class="basic" src="icon/icon_after.png" width="80" height="80" onmouseover="this.src='/icon/icon_after_on.png'" onmouseout="this.src='/icon/icon_after.png'" /></a>
+            </div>
+            <div class="board_divide_bar"></div>
+            <div class="board_icon">
+                <a href="list.php?id=Event"><img class="basic" src="icon/icon_event.png" width="80" height="80" onmouseover="this.src='/icon/icon_event_on.png'" onmouseout="this.src='/icon/icon_event.png'"/></a>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!--Menu Bar-->
+    <div class="menu_test">
+        <ul>
+            <li class="float_leftmenu">
+                <a href="" class="basic"><div>데스크탑</div></a>
+                <div class="open_menu">
+                    <ul>
+                        <li><a href="" class="basic"><div>30 - 40만원대</div></a></li>
+                        <li><a href="" class="basic"><div>50 - 60만원대</div></a></li>
+                        <li><a href="" class="basic"><div>70 - 80만원대</div></a></li>
+                        <li><a href="" class="basic"><div>90 - 100만원대 이상</div></a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="float_leftmenu"><a href="" class="basic"><div>노트북</div></a></li>
+            <li class="float_leftmenu"><a href="" class="basic"><div>온라인견적</div></a></li>
+            <li class="float_leftmenu">
+                <a href="" class="basic"><div>모니터</div></a>
+                <div class="open_menu">
+                    <ul>
+                        <li><a href="" class="basic"><div>22형</div></a></li>
+                        <li><a href="" class="basic"><div>24형</div></a></li>
+                        <li><a href="" class="basic"><div>27형</div></a></li>
+                        <li><a href="" class="basic"><div>29형 이상</div></a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="float_leftmenu"><a href="" class="basic"><div>입력장치</div></a></li>
+            <li class="float_leftmenu"><a href="" class="basic"><div>음향장치</div></a></li>
+            <li class="float_leftmenu">
+                <a href="" class="basic"><div>네트워크/프린터</div></a>
+                <div class="open_menu">
+                    <ul>
+                        <li><a href="" class="basic"><div>유·무선 공유기</div></a></li>
+                        <li><a href="" class="basic"><div>무선 수신기</div></a></li>
+                        <li><a href="" class="basic"><div>케이블</div></a></li>
+                        <li><a href="" class="basic"><div>잉크젯 프린터</div></a></li>
+                        <li><a href="" class="basic"><div>레이저 흑백 프린터</div></a></li>
+                        <li><a href="" class="basic"><div>레이저 컬러 프린터</div></a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="float_leftmenu">
+                <a href="" class="basic"><div>저장장치/기타</div></a>
+                <div class="open_menu">
+                    <ul>
+                        <li><a href="" class="basic"><div>USB</div></a></li>
+                        <li><a href="" class="basic"><div>외장HDD</div></a></li>
+                        <li><a href="" class="basic"><div>외장ODD</div></a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="float_leftmenu"><a href="" class="basic"><div>소프트웨어</div></a></li>
+        </ul>
+    </div>
+
+
+    <!-- Content -->
+    <div class="Content" style="margin-top:20px;" id="test">
+        <div class="category_banners"><img class="basic" src="./img/category/Keyboard.png" width="200" height="300"/></div>
+        <div class="category_banners"><img class="basic" src="./img/category/Mouse.png" width="200" height="300" /></div>
+        <div class="category_banners"><img class="basic" src="./img/category/Wifi.png" width="200" height="300" /></div>
+        <div class="category_banners"><img class="basic" src="./img/category/SSD.png" width="200" height="300" /></div>
+        <div class="body_banners">
+            <img class="basic" src="icon/shopsquare.png" width="255" height="300" />
+        </div>
+    </div>
+</body>
+</html>

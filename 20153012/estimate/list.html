@@ -1,0 +1,148 @@
+<?
+########## 데이터베이스에 연결한다. ###########
+include "dbconn.inc";
+
+?>
+<html><head>
+<title>제품리스트</title>
+<style type="text/css">
+<!--
+.content {  font-size: 12px; line-height: 130%; color: #666666}
+
+BODY
+{ 
+scrollbar-face-color:#FFFFFF;
+scrollbar-shadow-color:#CCCCCC;
+scrollbar-highlight-color:#CCCCCC;
+scrollbar-3dlight-color:#FFFFFF; 
+scrollbar-darkshadow-color:#FFFFFF;
+scrollbar-track-color:#FFFFFF;
+scrollbar-arrow-color:#CCCCCC
+}
+
+    A:link    {font: 10pt GulimChe,굴림체; color: black; text-decoration: none}
+    A:active  {font: 10pt GulimChe,굴림체; color: black; text-decoration: none}
+    A:visited {font: 10pt GulimChe,굴림체; color: black; text-decoration: none}
+        A:hover   {text-decoration: underline;}
+    td        {font: 10pt GulimChe,굴림체;}
+    .tdw      {font: bold 10pt GulimChe,굴림체;}
+    .font     {font: bold 10pt GulimChe,굴림체;}
+    .netist   {font: bold 10pt GulimChe,굴림체; color: gray;}
+//-->     
+</style>
+</head>		
+<body>
+<table width="650" border="0" cellpadding="5" cellspacing="0" align="center">
+  <tr> 
+    <td><b><font size="2">제품을 추가할 경우, 주의 사항 <font color="#FF0000">! </font></font></b></td>
+  </tr>
+  <tr>
+    <td><font size="2" class="content">제품번호는 고유한 제품식별번호이므로, 중복이 되면 안된다.<br>
+      그러므로, <b>제품추가</b>양식으로 가기 전에, <b>제품목록</b>에서 해당 제품종류의 <b>마지막 번호</b>을 확인하고 
+      가세요.</font></td>
+  </tr>
+</table>
+<div align="center"><br>
+  <b>제품목록</b><br>
+  <br>
+  <table width="650" border="0" cellpadding="1" cellspacing="0">
+    <tr> 
+      <td bgcolor="#666666"> 
+        <table width="650" border="0" cellpadding="5" cellspacing="0">
+          <tr bgcolor="#FFFFFF"> 
+            <td><a href="postform.html">제품추가</a> | <a href="assemble.html">PC 
+              견적서</a> </td>
+            <td align="right"> 
+              <select size='1' style='font: 9pt 굴림; background-color:#E6E6E6; border:1 solid black' name="p_kind">
+                <option>제품 종류별 검색 </option>
+                <option>--------------</option>
+                <option value="ALL">전체물품(ALL)</option>
+                <option value="마더보드">마더보드</option>
+                <option value="CPU">CPU</option>
+                <option value="RAM">RAM</option>
+                <option value="HDD">HDD</option>
+                <option value="VGA">VGA</option>
+                <option value="CASE">CASE</option>
+                <option value="SOUND">SOUND</option>
+                <option value="모니터">모니터</option>
+                <option value="프린터">프린터</option>
+                <option value="스캐너">스캐너</option>
+                <option value="스피커">스피커</option>
+                <option value="키보드">키보드</option>
+                <option value="CD-ROM/CD-RW">CD-ROM/CD-RW</option>
+                <option value="FDD/마우스">FDD/마우스</option>
+                <option value="TV카드/CAM">TV카드/CAM</option>
+                <option value="파워/LAN">파워/LAN</option>
+              </select>
+            </td>
+            <td width="60" align="right"> 
+              <input type="submit" name="Submit" value="Click !">
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  
+</div>
+<table width="650" border="0" cellpadding="1" cellspacing="0" bgcolor="#666666" align="center">
+  <tr> 
+    <td>
+       <table border="0" width="650" align="center" cellspacing="1" cellpadding="3">
+        <tr bgcolor="#999999"> 
+          <td align="center" width=70><font size="2" color="#FFFFFF">제품번호</font></td>
+          <td align="center" width=90><font size="2" color="#FFFFFF">제품종류</font></td>
+          <td align="center" width=260><font size="2" color="#FFFFFF">제 품 명</font></td>
+          <td align="center" width=90><font size="2" color="#FFFFFF">제품가격</font></td>
+          <td align="center"><font size="2" color="#FFFFFF">수정 및 삭제</font></td>
+        </tr>
+        <?
+########## 현재페이지의 범위내에 출력할 결과레코드세트를 얻는다. ##########
+
+$query = "SELECT * FROM assemble ORDER BY id asc";
+$result= mysql_query($query);
+
+$record_num = mysql_num_rows($result); 
+ 
+for($i = 0; $i < $record_num; $i++) {
+
+
+    $col = mysql_fetch_array($result); 
+    $my_id= $col[id];
+    $my_kind= $col[kind]; 
+    $my_name= $col[name]; 
+    $my_price= $col[price];  
+	
+	
+
+   echo("<form name='$my_id' method='get' action='modifyform.html'>
+   	      <input type='hidden' name='my_id' value='$my_id'>
+	      <input type='hidden' name='my_kind' value='$my_kind'> 
+	      <input type='hidden' name='my_name' value='$my_name'> 
+	      <input type='hidden' name='my_price' value='$my_price'>  
+	");      
+		    
+   echo("<tr bgcolor='#FFFFFF'>");
+   echo("   <td align='center' width='70'><font size=2>$my_id</font></td>");
+   echo("   <td width='90'><font size=2>$my_kind</font></td>");
+   echo("   <td width='260'><font size=2>$my_name</font></td>");
+   echo("   <td align='right' width='90'><font size=2>$my_price 원</font></td>");
+   echo("   <td align='center'><font size=2> 
+               <input type='submit' name='$my_id' value='수정 및 삭제'>
+            </font></td> ");    
+   echo("</tr>");   
+   echo("</form> ");
+}
+echo("</table>");
+?>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<p align="center"> <a href="postform.html">제품추가</a> | <a href="assemble.html">PC 
+  견적서</a> 
+<p align="center"> 
+  <? include "footer.php"; ?>
+</body>
+</html>

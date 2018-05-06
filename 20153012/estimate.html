@@ -1,0 +1,489 @@
+<!-- 1. 메모장 등으로 아래의 내용을 HTML 문서의 HEAD 부분에 붙여 넣으세요 -->
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+
+function ComputeTotal( form )
+{
+
+/******** 각 품목별 마진율을 지정 합니다 *************/
+
+Profit_rate1 = 1 + 0.12 
+Profit_rate2 = 1 + 0.10 
+Profit_rate3 = 1 + 0.11 
+Profit_rate4 = 1 + 0.20 
+Profit_rate5 = 1 + 0.07 
+
+/********* 각 항목별로 마진율을 적용 합니다 
+마진율 적용 없이 판매가를 적용하려면 아래 각 항목에서 Profit_rate 부분을 삭제하고
+폼 항목의 value 를 판매가로 입력 합니다 ***********/
+
+        CPU = form.CPU1.value = round(form.CPU.value * Profit_rate1)
+        MAB = form.Mainboard1.value = round(form.Mainboard.value*Profit_rate2)
+        MM1 = form.Memory2.value = round(form.Memory0.value * Profit_rate1)
+        MM2 = form.Memory3.value = round(form.Memory1.value * Profit_rate1)
+        HI1 = form.HDIDE2.value = round(form.HDIDE0.value * Profit_rate1)
+        HI2 = form.HDIDE3.value = round(form.HDIDE1.value * Profit_rate1)
+        HS1 = form.HDSCSI2.value = round(form.HDSCSI0.value * Profit_rate1)
+        HS2 = form.HDSCSI3.value = round(form.HDSCSI1.value * Profit_rate1)
+        VID = form.Video1.value = round(form.Video.value * Profit_rate3)
+        MON = form.Monitor1.value = round(form.Monitor.value * Profit_rate1)
+        CDR = form.CD1.value = round(form.CD.value * Profit_rate1)
+        DVD = form.DVD1.value = round(form.DVD.value * Profit_rate4)
+        RDR = form.Removable1.value = round(form.Removable.value * Profit_rate5)
+        SND = form.Sound1.value = round(form.Sound.value * Profit_rate1)
+        SPK = form.Speakers1.value = round(form.Speakers.value * Profit_rate1)
+        MOD = form.Modem1.value = round(form.Modem.value * Profit_rate1)
+        NET = form.Network1.value = round(form.Network.value * Profit_rate1)
+        CAS = form.Case1.value = round(form.Case.value * Profit_rate1)
+        MOS = form.Mouse1.value = round(form.Mouse.value * Profit_rate1)
+        KEY = form.Keyboard1.value = round(form.Keyboard.value * Profit_rate1)
+        OS1 = form.OS1.value = round(form.OS.value * Profit_rate1)
+        SOF = form.Software1.value = round(form.Software.value * Profit_rate1)
+        PRN = form.Printer1.value = round(form.Printer.value * Profit_rate1)
+        SCN = form.Scanner1.value = round(form.Scanner.value * Profit_rate1)
+        UPS = form.UPS1.value = round(form.UPS.value * Profit_rate1)
+
+subtotal1 = CPU + MAB + MM1 + MM2 + HI1 + HI2 + HS1 + HS2 + VID 
+        + MON + CDR + DVD + RDR + SND + SPK + MOD + NET + CAS + MOS 
+        + KEY + OS1 + SOF + PRN + SCN + UPS
+
+form.subtotal1.value = subtotal1
+}
+
+function round(number,X) {
+X = (!X ? 2 : X);
+return Math.round(number*Math.pow(10,X))/Math.pow(10,X);
+}
+
+//-->
+</SCRIPT>
+
+</HEAD>
+
+<BODY>
+
+<!----- 아래의 방법으로 HTML 문서의 BODY 부분에 붙여 넣으세요 --------->
+
+<!----------- 이메일 주문서를 받을 주소를 설정 합니다 -------------------->
+
+<CENTER><H3>아래 목록에서 선택 하신 후 [주문하기] 버튼을 눌러 주세요</H3></CENTER>
+
+<FORM         METHOD="POST" ACTION="mailto:babo@babo.com?subject=주문서">
+
+  <table width="591" border="0" bgcolor="orange">
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="CPU" onChange="ComputeTotal(this.form)">
+          <option value="0">CPU 를 선택 하세요</option>
+
+<!-------------- value 에는 제품 원가를 입력 합니다------------------------------------->
+
+                  <option value="200000">Intel Celeron processor 300MHz w/128KB cache PPGA</option>
+          <option value="70000">Intel Celeron processor 333MHz w/128KB cache PPGA</option>
+          <option value="85000">Intel Celeron processor 366MHz w/128KB cache PPGA</option>
+          <option value="105000">Intel Celeron processor 400MHz w/128KB cache PPGA</option>
+          <option value="135000">Intel Celeron processor 433MHz w/128KB cache PPGA</option>
+          <option value="175000">Intel Celeron processor 466MHz w/128KB cache PPGA</option>
+          <option value="179000">Intel Pentium II processor 350MHz w/512KB cache</option>
+          <option value="185000">Intel Pentium II processor 400MHz w/512KB cache</option>
+          <option value="255000">Intel Pentium III processor 450MHz w/512KB cache</option>
+          <option value="480000">Intel Pentium III processor 500MHz w/512KB cache</option>
+          <option value="570000">Intel Pentium III processor 550MHz w/512KB cache</option>
+          <option value="35000">AMD-K6 II 300 with 3DNow! Processor Socket7</option>
+          <option value="42000">AMD-K6 II 350 with 3DNow! Processor Socket7</option>
+          <option value="80000">AMD-K6 II 400 with 3DNow! Processor Socket7</option>
+          <option value="100000">AMD-K6 II 450 with 3DNow! Processor Socket7</option>
+          <option value="170000">AMD-K6 III 400 with 3DNow! Processor Socket7</option>
+          <option value="220000">AMD-K6 III 450 with 3DNow! Processor Socket7</option>
+          <option value="420000">AMD-K6 III 500 with 3DNow! Processor Socket7</option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" style="background-color:yellow" size=6 name="CPU1" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="Mainboard" onChange="ComputeTotal(this.form)">
+          <option value="0">메인보드를 선택 하세요</option>
+          <option value="98000">ABIT Intel 440BX Slot1 ATX</option>
+          <option value="82000">Asus Intel 440BX Slot1 ATX</option>
+          <option value="165000">Asus Intel 440BX Dual Slot1 ATX</option>
+          <option value="240000">Asus Intel 440BX Dual Slot1 SCSI ATX</option>
+          <option value="80000">EPoX Intel 440BX Slot1 ATX</option>
+          <option value="160000">EPoX Intel 440BX Dual Slot1 ATX</option>
+          <option value="90000">SuperMicro Intel 440BX Slot1 ATX</option>
+          <option value="170000">SuperMicro Intel 440BX Dual Slot1 ATX</option>
+          <option value="245000">SuperMicro Intel 440BX Dual Slot1 SCSI ATX</option>
+          <option value="98000">ABIT Intel 440BX PPGA ATX</option>
+          <option value="140000">ABIT Intel 440BX Dual PPGA ATX</option>
+          <option value="82000">Asus Intel 440BX PPGA ATX</option>
+          <option value="80000">EPoX Intel 440BX PPGA ATX</option>
+          <option value="89000">SuperMicro Intel 440BX PPGA ATX</option>
+          <option value="82000">Asus Intel 440BX PPGA ATX</option>
+          <option value="80000">EPoX Intel 440BX PPGA ATX</option>
+          <option value="85000">SuperMicro Intel 440BX PPGA Slot1 ATX</option>
+          <option value="82000">Asus ALI Socket7 ATX</option>
+          <option value="80000">EPoX VIA MVP3 Socket7 ATX</option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="Mainboard1" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="Memory0" onChange="ComputeTotal(this.form)">
+          <option value="0">Select a Momory on Blank0</option>
+          <option value="32000">32 Megs PC 100 SDRAM</option>
+          <option value="57000">64 Megs PC 100 SDRAM</option>
+          <option value="90000">128 Megs PC 100 SDRAM</option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="Memory2" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="Memory1" onChange="ComputeTotal(this.form)">
+          <option value="0000">Select a Momory on Blank1 (optional)</option>
+          <option value="32000">32 Megs PC 100 SDRAM</option>
+          <option value="57000">64 Megs PC 100 SDRAM</option>
+          <option value="90000">128 Megs PC 100 SDRAM</option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="Memory3" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="HDIDE0" onChange="ComputeTotal(this.form)">
+          <option value="0">Select a IDE Hard Drive1</option>
+          <option value="100000">6 Gig UDMA</option>
+          <option value="140000">8 Gig UDMA</option>
+          <option value="175000">10 Gig UDMA</option>
+          <option value="205000">13 Gig UDMA</option>
+          <option value="275000">18 Gig UDMA</option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="HDIDE2" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="HDIDE1" onChange="ComputeTotal(this.form)">
+          <option value="0">Select a IDE Hard Drive2 (optional)</option>
+          <option value="100000">6 Gig UDMA</option>
+          <option value="140000">8 Gig UDMA</option>
+          <option value="175000">10 Gig UDMA</option>
+          <option value="205000">13 Gig UDMA</option>
+          <option value="275000">18 Gig UDMA</option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="HDIDE3" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="HDSCSI0" onChange="ComputeTotal(this.form)">
+          <option value="0">Select a SCSI Hard Drive1 (optional)</option>
+          <option value="470000">4 Gig U2 SCSI </option>
+          <option value="550000">9 Gig U2 SCSI</option>
+          <option value="1030000">18 Gig U2 SCSI</option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="HDSCSI2" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="HDSCSI1" onChange="ComputeTotal(this.form)">
+          <option value="0">Select a SCSI Hard Drive2 (optional)</option>
+          <option value="470000">4 Gig U2 SCSI </option>
+          <option value="550000">9 Gig U2 SCSI</option>
+          <option value="1030000">18 Gig U2 SCSI</option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="HDSCSI3" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="Video" onChange="ComputeTotal(this.form)">
+          <option value="0">비디오 카드를 선택 하세요</option>
+          <option value="110000">3Dfx Voodoo3 2000 AGP2X OEM/Bulk 16MB SDRAM</option>
+          <option value="150000">3Dfx Voodoo3 3000 AGP2X OEM/Bulk 16MB SDRAM w/TV Out</option>
+          <option value="30000">ATI 3D Charger AGP 4MB EDO RAGE IIC 3D/2D MPEG1</option>
+          <option value="175000">ATI All-in-Wonder Pro AGP OEM 3D Rage Pro and ImpacTV2, 8MB</option>
+          <option value="40000">ATI XPERT98 8MB AGP2X SDRAM MPEG-2/DVD Bulk OEM</option>
+          <option value="160000">ATI RAGE FURY AGP2X 32MB SDRAM MPEG-2/DVD Bulk OEM w/TV Out</option>
+          <option value="95000">ATI XPERT128 16MB AGP2X SDRAM MPEG-2/DVD Bulk OEM</option>
+          <option value="45000">Diamond SpeedStar A50 AGP2X OEM/Bulk SiS 6326AGP 8MB SDRAM</option>
+          <option value="80000">Diamond Viper V550 AGP RIVA TNT 16MB SDRAM OEM/Bulk</option>
+          <option value="170000">Diamond Viper V770 AGP4X RIVA TNT2 32MB SDRAM Retail</option>
+          <option value="110000">Diamond Monster Fusion AGP OEM/Bulk Voodoo Banshee 16MB SGRAM</option>
+          <option value="50000">Jaton Video-97AGP 2X Trident 985 4MB SGRAM</option>
+          <option value="100000">Matrox Millennium G200 AGP2X 128-bit DualBus 8M SGRAM OEM</option>
+          <option value="190000">Matrox Millennium G400 AGP4X 256-bit 32M SGRAM DualHead Retail</option>
+          <option value="170000">Matrox Millennium G400 SH AGP4X 256-bit 32M SGRAM single display OEM</option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="Video1" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="Monitor" onChange="ComputeTotal(this.form)">
+          <option value="0">모니터를 선택 하세요</option>
+          <option value="125000">KDS VS-5e 15/13.9 1280 NI .28mm Digital OSD, MPRII, DDC1/2B</option>
+          <option value="190000">KDS AV-5T 15/13.9 1280 NI .25mm Sony Trinitron Digital OSD</option>
+          <option value="255000">KDS VS-7e 17/15.8 1280 NI .28mm Digital OSD, MPRII, DPMS </option>
+          <option value="310000">KDS AV-7T 17/15.9 1280 NI .25mm Sony Trinitron Digital OSD</option>
+          <option value="430000">KDS VS19sn 19/18 1600@75Hz .25mm Short Neck Digital OSD</option>
+          <option value="600000">Sony GDM-420GS Trinitron 19/18 short-neck .25-.27AG TCO92</option>
+          <option value="1530000">Sony GDM-500PS Trinitron 21/19.8 short-neck .25-.27AG TCO95</option>
+          <option value="1900000">Sony GDM-F500 FD Trinitron 21/19.8 .22AG USB TCO95</option>
+          <option value="2600000">Sony GDM-W900 Wide Trinitron 24/22.5 .25-.28AG TCO95</option>
+          <option value="135000">Tatung C5BZR 15 Color Digital SVGA 1280 NI .28mm Green</option>
+          <option value="250000">Tatung C7BZR-25 17/15.9 Color 1280@60Hz .25mm Green Digital OSD</option>
+          <option value="430000">Tatung C7NZR 19/17.9 Color 1600@75Hz NI .26mm Green Digital OSD</option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="Monitor1" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="CD" onChange="ComputeTotal(this.form)">
+          <option value="0">CD-ROM Drive </option>
+          <option value="40000">Toshiba XM-6402B Int 40X-Max CD-ROM 6.0MB/s 80ms 256KB EIDE</option>
+          <option value="42000">Acer CD-640A Internal 40X-Max 6.0MB/s 85ms 128KB ATAPI</option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="CD1" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="DVD" onChange="ComputeTotal(this.form)">
+          <option value="00">DVD Drive (옵션)</option>
+          <option value="90000">Toshiba DVD 4.8X DVD-ROM 32X CD-ROM</option>
+          <option value="100000">Creative PC-DVD 6X DVD-ROM 24X CD-ROM</option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="DVD1" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="Removable" onChange="ComputeTotal(this.form)">
+          <option value="0">Select a Removable Drive (optional)</option>
+          <option value="75000">Iomega Zip ATAPI Insider 100MB Internal for PCs 3?EIDE</option>
+          <option value="140000">Iomega Zip 100MB External for PCs 3? w/ parallel cable</option>
+          <option value="180000">Iomega Zip 100MB Plus External for PCs 3? w/ cable</option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="Removable1" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="Sound" onChange="ComputeTotal(this.form)">
+          <option value="0">사운드 카드</option>
+          <option value="56000">Aureal Vortex2 SuperQuad Digital PCI OEM AU8830 A3D2.0 320V +S/PDIF</option>
+          <option value="25000">Creative Labs Sound Blaster 16 Wav Effects CT4170 OEM</option>
+          <option value="67000">Creative Labs Sound Blaster PCI 128 PnP 128v wave Retail</option>
+          <option value="53000">Creative Labs Sound Blaster Live! Value PCI 256v wave Retail</option>
+          <option value="170000">Creative Labs Sound Blaster Live! PCI 256v wave Retail</option>
+          <option value="95000">Diamond Monster Sound MX300 PCI Aureal A3D2.0 320v Wav. Retail</option>
+          <option value="25000">Jaton SonicWave 4D PCI PnP 64-voice wavetable 4D audio</option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="Sound1" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="Speakers" onChange="ComputeTotal(this.form)">
+          <option value="0">스피커</option>
+          <option value="10000">MLi-168 5W/ch shielded amp'd spkr pair, AC/DC, bass boost </option>
+          <option value="39000">MLi-480 3-piece (2x6W 1x18W) shielded speakers system </option>
+          <option value="30000">Midiland Forzando II 14W/ch PMPO:350W 2-way speaker pair </option>
+          <option value="130000">S2 / Midiland S2-4030 4-piece shielded speaker system </option>
+          <option value="345000">S2 / Midiland S2-4100 4-piece shielded speaker system</option>
+          <option value="155000">Altec Lansing ADA305 3-piece Digital PowerCube Surround USB</option>
+          <option value="90000">Cambridge Soundworks PC Works 5-Piece FourPointSurround System</option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="Speakers1" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="Modem" onChange="ComputeTotal(this.form)">
+          <option value="0">모뎀</option>
+          <option value="35000">Aopen PCI Internal V.90 56K Voice Cirrus chipset</option>
+          <option value="139000">Diamond SupraSonic II with Shotgun?technology (Dual 56K)</option>
+          <option value="140000">US Robotics Sportster External V.90 56K Faxmodem, x2 technology</option>
+          <option value="90000">US Robotics Sportster Internal V.90 56K OEM Faxmodem, x2 technology</option>
+          <option value="145000">US Robotics Sportster Voice External V.90 56K Faxmodem Pro, x2 technology</option>
+          <option value="99000">US Robotics Sportster Voice Internal V.90 56K OEM Faxmodem, x2 technology</option>
+          <option value="75000">US Robotics Sportster Winmodem V.90 56K, internal</option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="Modem1" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="Network" onChange="ComputeTotal(this.form)">
+          <option value="0">랜카드</option>
+          <option value="75000">3Com EtherLink XL PCI Combo (3C900B-COMBO) Bulk OEM</option>
+          <option value="59000">3Com Fast EtherLink XL TX 10/100 PCI (3C905B-TX) Bulk OEM</option>
+          <option value="35000">NC2000 10/100 PCI Ethernet (U1205C)</option>
+          <option value="52000">Intel EtherExpress PRO/100+ TX PCI (PILA8460-B) w/ Wake-Up OEM</option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="Network1" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="Case" onChange="ComputeTotal(this.form)">
+          <option value="0">케이스</option>
+          <option value="45000">Standard Case</option>
+          <option value="65000">Super Middle Tower ATX 5x5?(1Hdn) 3x3?(2 Hdn) 250W ATX UL</option>
+          <option value="89000">SuperMicro SC701-A Tower ATX 3x5?5x3?(3 Hdn) 235W PS </option>
+          <option value="89000">SuperMicro SC730-A Mid Tower ATX 235W PS 16.5x6.7x15.75</option>
+          <option value="150000">SuperMicro SC750-A (ATX) Tower 6x5?300W PS</option>
+          <option value="90000">Super Tower ATX 8x5?(2Hdn) 3x3?(2 Hdn) 300W ATX UL</option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="Case1" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="Mouse" onChange="ComputeTotal(this.form)">
+          <option value="0">마우스</option>
+          <option value="25000">Logitech First Mouse+ OEM w/ scroll wheel, PS/2</option>
+          <option value="45000">Logitech MouseMan OEM 3-button, PS/2 mouse port</option>
+          <option value="50000">Logitech USB Wheel Mouse, 3-button w/ scroll wheel</option>
+          <option value="45000">Microsoft IntelliMouse Pro serial & PS/2 Retail Box</option>
+          <option value="30000">Microsoft OEM Intellimouse PS/2 V1.1A</option>
+          <option value="20000">Microsoft PS/2 mouse 2 OEM </option>
+          <option value="10000">High-resolution Microsoft compatible serial mouse 
+          </option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="Mouse1" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="Keyboard" onChange="ComputeTotal(this.form)">
+          <option value="0">키보드</option>
+          <option value="17000">mitsumi Keyboard-52TB 104-key w/Win95 keys, PS/2</option>
+          <option value="35000">Microsoft 104 Natural Keyboard Elite OEM</option>
+          <option value="29000">Logitech Internet Keyboard 104-key 17 Internet buttons</option>
+          <option value="59000">Logitech NewTouch Split Ergo Keyboard with Touchpad</option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="Keyboard1" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="OS" onChange="ComputeTotal(this.form)">
+          <option value="0000">O/S</option>
+          <option value="95000">Microsoft OEM Windows 98 CD-ROM</option>
+          <option value="120000">Microsoft OEM Windows NT Work Station v4.0 CD-ROM </option>
+          <option value="185000">Microsoft OEM Windows NT Server v4.0 CD-ROM </option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="OS1" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="Software" onChange="ComputeTotal(this.form)">
+          <option value="0">Select a Software Package (optional)</option>
+          <option value="150000"> Corel Office 2000 </option>
+          <option value="199000"> Microsoft Office '97 Professional</option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="Software1" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="Printer" onChange="ComputeTotal(this.form)">
+          <option value="0">프린터</option>
+          <option value="310000">Alps MD-1000 1200dpi Photo Printer</option>
+          <option value="350000">Alps MD-1300 1200dpi Photo Printer</option>
+          <option value="490000">Alps MD-5000 2400dpi Photo Printer</option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="Printer1" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="Scanner" onChange="ComputeTotal(this.form)">
+          <option value="0">스캐너</option>
+          <option value="90000">AcerScan 310s (30 bit, 4800dpi)</option>
+          <option value="120000">AcerScan 610plus (30 bit, 9600 dpi)</option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="Scanner1" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <select name="UPS" onChange="ComputeTotal(this.form)">
+          <option value="0">UPS</option>
+          <option value="200000">APC Back-UPS 500 (500VA/330W) UPS 15/20 Minutes</option>
+          <option value="300000">UAPC Back-UPS Pro 350 (350VA/220W) UPS 5/16.5 Minutes (USB Win98 Only)</option>
+        </select>
+      </td>
+      <td bgcolor="white"  width="40"> 
+        <input type="TEXT" style="background-color:yellow" size=6 name="UPS1" maxlength="6">
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="white"  width="535"> 
+        <p align="right"> <b>합 계: </b> 
+      </td>
+      <td bgcolor="white"  width="40"><b> 
+        <input type="TEXT" style="background-color:lightblue" size=6 name="subtotal1" maxlength="6">
+        </b></td>
+    </tr>
+
+<tr><td bgcolor="white"  colspan=2 align=center>
+<input type=submit value="                 주문 메일 발송                 "></td></tr>
+  </table>
+  <p> </p>
+  </form>

@@ -1,0 +1,37 @@
+td.b_subject{
+	padding:0px;
+	border-top:2px solid black;
+	border-bottom:1px solid black;
+	vertical-align:center;
+	height:45px;
+}
+td.b_subject1{
+	border-bottom:1px dotted silver;
+}
+table.b_subject {
+	border-spacing:0px;
+	padding:0px;
+	border-collapse:collapse;
+	font-size:9pt;
+}
+div.board_title_wrapper {
+	width:1080px;
+	margin:auto;
+	padding-top:50px;
+	text-align:left;
+}
+div.board_title_image {
+	width:50%;
+	display:inline-block;
+	text-align:left;
+}
+div.board_title_button {
+	width:50%;
+	display:inline-block;
+	text-align:right;
+}
+table.b_search{
+	border-top:1px solid black;
+	font-size:9pt;
+	margin-bottom:50px;
+}

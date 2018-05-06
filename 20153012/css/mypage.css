@@ -1,0 +1,12 @@
+td {
+	border:none;
+}
+tr.register {
+	border:none;
+	vertical-align:bottom;
+}
+hr.register {
+	border:0.5px solid;
+	border-color:gainsboro;
+	width:99%;
+}

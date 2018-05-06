@@ -1,0 +1,35 @@
+<!--팝업광고시작-->
+<script language="javascript"> 
+ // 이부분부터  수정할 필요 없습니다. 
+ function getCookie(name) { 
+  var Found = false 
+  var start, end;
+  var i = 0;
+  while(i <= document.cookie.length) { 
+   start = i;
+   end = start + name.length;
+  if(document.cookie.substring(start, end) == name) { 
+   Found = true;
+   break;
+  } 
+  i++;
+ } 
+  if(Found == true) { 
+  start = end + 1;
+  end = document.cookie.indexOf(";", start);
+ if(end < start) 
+  end = document.cookie.length;
+ return document.cookie.substring(start, end);
+ } 
+ return ""; 
+} 
+// 이부분 까지는 수정할 필요 없습니다. 
+ function openPopup(src, name)
+ {
+  var noticeCookie=getCookie(name);
+  if (noticeCookie != "no") 
+   window.open(src,name,'width=245,height=390,top=90,left=150'); 
+ } 
+ openPopup("./popup/popup.html","notice");  // 첫번째 인수는 띄울 파일 두번째는 창*쿠키이름
+ //openPopup("popup2.htm","news");
+</script>

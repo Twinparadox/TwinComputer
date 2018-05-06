@@ -1,0 +1,14 @@
+table.goods_show_list {
+	margin-top:10px;
+	margin-bottom:100px;
+}
+
+span.sort_divide_bar {
+	border-left: 1px solid black;
+    display: inline-block;
+    border-right: 1px solid #fff;
+    height: 10px;
+    margin-top: 4px;
+	margin-left:10px;
+	margin-right:10px;
+}

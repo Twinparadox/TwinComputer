@@ -1,0 +1,133 @@
+div.review_img {
+	width:1080px;
+	margin:auto;
+	padding-top:50px;
+	text-align:left;
+}
+div.review_title_wrapper {
+	width:1080px;
+	height:50px;
+	border-top:2px solid black;
+	border-bottom:1px solid silver;
+	margin-bottom:5px;
+}
+div.review_title_subject {
+	width:800px;
+	margin-top:10px;
+	margin-left:15px;
+	text-align:left;
+	font-size:15pt;
+	display:inline-block;
+}
+div.review_write_date {
+	width:1080px;
+	font-size:9pt;
+	color:#999;
+	text-align:right;
+}
+div.review_title_user {
+	margin-top:10px;
+	width:265px;
+	font-size:10pt;
+	text-align:right;
+	display:inline-block;
+}
+span.review_divide_bar {
+    border-left: 1px solid black;
+    display: inline-block;
+    border-right: 1px solid #fff;
+    height: 10px;
+    margin-top: 4px;
+	margin-right:3px;
+	margin-left:3px;
+}
+div.review_content {
+	width:1080px;
+	max-width:1080px;
+	text-align:left;
+}
+
+div.comment_wrapper {
+	margin-top:50px;
+	margin-bottom:50px;
+	width:1080px;
+}
+div.comment_input {
+	text-align:left;
+	vertical-align:center;
+	height:60px;
+	width:100%;
+	border:1px solid silver;
+}
+textarea.comment_in {
+	width:85%;
+	display:inline-block;
+	margin-top:10px;
+	margin-left:20px;
+	margin-right:20px;
+}
+div.comment_show {
+	width:100%;
+	margin-top:30px;
+}
+div.comment_list {
+	border-top:1px dotted silver;
+	border-bottom:1px dotted silver;
+	font-size:9pt;
+	height:30px;
+	vertical-align:middle;
+}
+div.comment_id{
+	display:inline-block;
+	width:13%;
+	text-align:left;
+	padding-left:2%;
+	vertical-align:middle;
+}
+div.comment_text{
+	display:inline-block;
+	width:50%;
+	text-align:left;
+	padding-left:2%;
+	vertical-align:middle;
+}
+div.comment_date{
+	display:inline-block;
+	width:13%;
+	text-align:left;
+	padding-left:2%;
+	vertical-align:middle;
+}
+div.comment_modify{
+	display:inline-block;
+	width:7%;
+	text-align:left;
+	padding-left:2%;
+	vertical-align:middle;
+}
+div.comment_delete{
+	display:inline-block;
+	width:7%;
+	text-align:left;
+	padding-left:2%;
+	vertical-align:middle;
+}
+
+div.review_next_prev {
+	margin-top:50px;
+	margin-bottom:50px;
+
+}
+div.review_next {
+	width:1080px;
+	text-align:left;
+}
+div.review_current {
+	width:1080px;
+	background-color:#FFFFD2;
+	text-align:left;
+}
+div.review_prev {
+	width:1080px;
+	text-align:left;
+}

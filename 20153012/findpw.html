@@ -1,0 +1,14 @@
+<head>
+<title>비밀번호 변경</title>
+</head>
+<center>
+<font size=3><b>사용자 비밀번호 변경</b></font>
+<table align=center border=0 width=400>
+<form method=post action="./changepw.php" onsubmit="if(!this.uid.value || !this.uname.value || !this.email.value) return false;">
+<tr><td align=right><font size=2>사용자 ID</td>
+<td align=left><input type=text size=20 name=uid></td></tr>
+<tr><td align=right><font size=2>이름(실명)</td>
+<td align=left><input type=text size=20 name=uname></td></tr>
+<tr><td align=right><font size=2>이메일주소</td>
+<td align=left><input type=text size=40 name=email></td></tr>
+<tr><td align=center colspan=2><input type=submit value='비밀번호 변경'></td></tr></form></table></center>

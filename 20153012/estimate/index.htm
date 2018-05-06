@@ -1,0 +1,174 @@
+<html>
+<head>
+<title>PC견적서 - 초기화면</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<style type="text/css">
+<!--
+.content {  font-size: 12px; line-height: 140%; color: #666666}
+
+BODY
+{ 
+scrollbar-face-color:#FFFFFF;
+scrollbar-shadow-color:#CCCCCC;
+scrollbar-highlight-color:#CCCCCC;
+scrollbar-3dlight-color:#FFFFFF; 
+scrollbar-darkshadow-color:#FFFFFF;
+scrollbar-track-color:#FFFFFF;
+scrollbar-arrow-color:#CCCCCC
+}
+
+    A:link    {font: 10pt GulimChe,굴림체; color: black; text-decoration: none}
+    A:active  {font: 10pt GulimChe,굴림체; color: black; text-decoration: none}
+    A:visited {font: 10pt GulimChe,굴림체; color: black; text-decoration: none}
+        A:hover   {text-decoration: underline;}
+    td        {font: 10pt GulimChe,굴림체;}
+    .tdw      {font: bold 10pt GulimChe,굴림체;}
+    .font     {font: bold 10pt GulimChe,굴림체;}
+    .netist   {font: bold 10pt GulimChe,굴림체; color: gray;}
+//-->     
+</style>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<table width="650" border="0" align="center" cellpadding="1" cellspacing="0" bgcolor="#666666">
+  <tr>
+    <td>
+      <table width="650" border="0" cellpadding="5" cellspacing="0" align="center">
+        <tr> 
+          <td bgcolor="#666666" align="center"><b><font size="2" color="#FFFFFF">PC 
+            견적서 V0.9</font><font size="2"> <font color="#FFFFFF">- </font></font></b><font size="2" color="#FFFFFF">made 
+            by sejon oh</font><font size="2">.</font><b><font size="2"> </font></b></td>
+        </tr>
+        <tr> 
+          <td bgcolor="#FFFFFF"> 
+            <p><font size="2" class="content"><span class="content">1. 아직 초기 버젼이므로, 
+              실행중 약간의 오류가 있을 수 있습니다.<br>
+              <br>
+              2. 그러나, PC 견적 내용을 출력하는 부분은 에러 없이 무난히 사용하실 수 있습니다.</span></font> 
+              <span class="content"><br>
+              <br>
+              3. 이 프로그램은 php , MySQL 환경에서만 실행됩니다.<br>
+              <br>
+              4. 이 프로그램은 아무나 이용하실 수 있습니다. 저작권도 없습니다.(copyleft) <br>
+              단, 이 프로그램을 보다 개선된 성능으로 수정하여 사용하실 때에는 저에게도 그 소스를 보내주시면 감사하겠습니다. (E-mail 
+              : oppert@dreamwiz.com)<br>
+              <br>
+              5. 사용중 에러가 날 경우에는 그 에러내용을 위의 이메일로 보내주십시요. 수정하도록 하겠습니다.</span></p>
+            <table width="650" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td align="right"><font color="#666666">2001.11.4 작성.</font></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<table width="300" border="0" cellpadding="1" cellspacing="0" align="center">
+  <tr> 
+    <td bgcolor="#666666"> 
+      <table width="300" border="0" cellpadding="5" cellspacing="0">
+        <tr bgcolor="#FFFFFF"> 
+          <td width="152" align="center" bgcolor="#FFFFFF"><font color="#333333">☞ 
+            Download </font></td>
+          <td width="478" align="center"><a href="assemble-v0.zip">assemble-v0.9</a></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<br>
+<br>
+<table width="650" border="0" align="center" cellpadding="1" cellspacing="0" bgcolor="#666666">
+  <tr> 
+    <td>
+      <table width="650" border="0" cellpadding="5" cellspacing="0" align="center">
+        <tr> 
+          <td bgcolor="#CCCCCC"><b><font size="2">1.사용 설명서.</font></b></td>
+        </tr>
+        <tr> 
+          <td bgcolor="#FFFFFF"> 
+            <p><font size="2" class="content">1. 먼저 MySQL에 테이블을 만들어야 합니다.<br>
+              </font><font size="2" class="content"><br>
+              2. CREATE TABLE <font color="#999999">table이름</font> ( id VARCHAR(8) 
+              NOT NULL PRIMARY KEY , kind VARCHAR(50) NOT NULL,<br>
+              name VARCHAR(200) NOT NULL, price INT(11) UNSIGNED ) ;<br>
+              <br>
+              3. 그런 다음, dbconn.inc 화일에서 아래 부분을 자신의 MySQL 에 맞게 수정합니다.<br>
+              ... <br>
+              </font><span class="content">$dbconn = mysql_connect(&quot;localhost&quot;,&quot;jopc306 
+              <font color="#999999">[MySQL 접속ID]</font>&quot;,&quot;47083 <font color="#999999">[MySQL 
+              접속 PASSWORD]</font>&quot;) || die(&quot;데이터베이스 연결에 실패하였습니다.&quot;);<br>
+              $status = mysql_select_db(&quot;joapc <font color="#999999">[MySQL 
+              DB 이름]</font>&quot;);<br>
+              ... </span></p>
+            <p class="content">4. modifyform.html 에서는 자신의 제품목록을 추가합니다.</p>
+            <p class="content">5. assemble.html 에서는 DB 저장된 id 값을 &lt;select&gt; 
+              태크에서 각 제품의 value 값과 일치하게 작성하시고 사용하시면 됩니다.</p>
+            <p class="content">6. 아직 초기버젼이므로, 더 자세한 설명은 생략하겠습니다. 궁금한 점은 저에게 메일을 
+              보내주십시요.<br>
+              <span class="content">(E-mail : oppert@dreamwiz.com)</span> </p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<br>
+<table width="650" border="0" align="center" cellpadding="1" cellspacing="0" bgcolor="#666666">
+  <tr> 
+    <td> 
+      <table width="650" border="0" cellpadding="5" cellspacing="0" align="center">
+        <tr> 
+          <td bgcolor="#CCCCCC"><b><font size="2">2. 각 화일 설명.</font></b></td>
+        </tr>
+        <tr> 
+          <td bgcolor="#FFFFFF"> 
+            <p class="content">index.htm - 지금 보고 계신 이 화일 입니다.<br>
+              postform.html - 제품을 입력하는 양식 화일입니다.<br>
+              post.php - 제품입력양식의 값들을 처리하는 화일입니다.<br>
+              list.html - 제품목록을 출력합니다.<br>
+              modifyform.html - 제품목록에서 지정한 품목의 수정및 삭제 양식을 출력합니다.<br>
+              modify.php - 제품수정양식에서 넘어온 값을 처리하는 화일입니다.<br>
+              delete_check.htm - 제품수정양식에서 삭제하는 품록을 한 번 더 확인하는 화일입니다.<br>
+              delete.php - 제품수정양식에서 넘어온 값을 삭제합니다.<br>
+              assemble.html - PC 견적서 양식을 출력합니다.<br>
+              assemble_process.php - PC 견적서에서 넘어온 값을 처리하고, 견적내용을 출력합니다.<br>
+              footer.php - 하단 부분의 내용. (수정해서 사용하세요~)</p>
+            </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<br>
+<table width="650" border="0" align="center" cellpadding="1" cellspacing="0" bgcolor="#666666">
+  <tr> 
+    <td> 
+      <table width="650" border="0" cellpadding="5" cellspacing="0" align="center">
+        <tr> 
+          <td bgcolor="#CCCCCC"><b><font size="2">3. 개선해야할 문제점.</font></b></td>
+        </tr>
+        <tr> 
+          <td bgcolor="#FFFFFF"> 
+            <p class="content">1. 제품값을 출력하는 과정에서 숫자 세 자리마다 (,)를 삽입하여 사용자가 보기 편하게 
+              해야 합니다.<br>
+              2. 제품목록에서 제품종류별검색을 아직 구현하지 않았습니다. <br>
+              3. 제품목록이 너무 아래로 길게 표시돼므로 수정해야합니다. 게시판처럼 아래 번호를 붙여서 이동하도록 하는 코드를 
+              구현해야 함.<br>
+              4. 제품추가시 제품종류를 선택하면 제품번호가 자동으로 할당되도록 하게 해야 함.<br>
+              5. 제품목록의 내용을 자동으로 PC 견적서 양식(HTML 화일)로 생성하는 과정을 구현해야 함.<br>
+              6. PC 견적결과 양식에서 원하는 품목만 수정하여 결과를 볼 수 있게 해야 함.<br>
+              7. 기타 개선 사항은 버젼이 높아지면서 나아지리라고 봅니다. (문제는 항상 시간!입니다.)</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<p align="center"> 
+  <? include "footer.php"; ?>
+</p>
+</body>
+</html>

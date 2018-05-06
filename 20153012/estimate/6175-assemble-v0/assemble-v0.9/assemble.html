@@ -1,0 +1,462 @@
+<?
+########## 데이터베이스에 연결한다. ###########
+include "dbconn.inc";
+
+?>
+<html><head>
+<title> pc 견적서</title>
+<style type="text/css">
+<!--
+.content {  font-size: 12px; line-height: 130%; color: #666666}
+
+BODY
+{ 
+scrollbar-face-color:#FFFFFF;
+scrollbar-shadow-color:#CCCCCC;
+scrollbar-highlight-color:#CCCCCC;
+scrollbar-3dlight-color:#FFFFFF; 
+scrollbar-darkshadow-color:#FFFFFF;
+scrollbar-track-color:#FFFFFF;
+scrollbar-arrow-color:#CCCCCC
+}
+
+    A:link    {font: 10pt GulimChe,굴림체; color: black; text-decoration: none}
+    A:active  {font: 10pt GulimChe,굴림체; color: black; text-decoration: none}
+    A:visited {font: 10pt GulimChe,굴림체; color: black; text-decoration: none}
+        A:hover   {text-decoration: underline;}
+    td        {font: 10pt GulimChe,굴림체;}
+    .tdw      {font: bold 10pt GulimChe,굴림체;}
+    .font     {font: bold 10pt GulimChe,굴림체;}
+    .netist   {font: bold 10pt GulimChe,굴림체; color: gray;}
+//-->     
+</style>
+</head>		
+<body>
+<p>
+<div align="center"><br>
+  <b>PC 견적서</b><br>
+  <br>
+</div>
+
+<form name="assemble" method="post" action="assemble_process.php">
+
+<table width="600" border="0" cellpadding="1" cellspacing="0" bgcolor="#666666" align="center">
+  <tr> 
+    <td>
+       
+        <table border="0" width="600" align="center" cellspacing="1" cellpadding="3">
+          <tr bgcolor="#999999"> 
+            <td align="center" width=150><font size="2" color="#FFFFFF">분 류</font></td>
+            <td align="center" width=400><font size="2" color="#FFFFFF">제 품 명</font></td>
+            <td align="center" width="50"><font size="2" color="#FFFFFF">수 량</font></td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td align="center" width=150>마더보드</td>
+            <td align="center" width=400> 
+              <select size='1' style='font: 9pt 굴림; background-color:#E6E6E6; border:1 solid black' name="mother_name">
+                <option value="null">- 목록에서 원하는 제품을 고르십시요 - ( http://joapc.co.kr 
+                )</option>
+                <option value="null">--------------------------------</option>
+                <option value="1001">[유니텍] VIA 694 보드 --- \ 80,000 원</option>
+                <option value="1002">[유니텍] 845 Pro 2 478SD,SOUND 내장 --- \ 215,000 
+                원</option>
+                <option value="1003">[유니텍] MS 6529 423SD, 사운드 내장 --- \ 190,000 
+                원</option>
+                <option value="1004">[MSD] P41TA 850 423SD,사운드 내장 --- \ 190,000 
+                원</option>
+              </select>
+            </td>
+            <td align="center" width="50"> 
+              <input type='text' name='mother_ea' size='3' maxlength='3' style='font: 9pt 굴림; background-color:#FFFFFF; border:1 solid black' value='1'>
+            </td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td align="center" width=150>CPU</td>
+            <td align="center" width=400> 
+              <select size='1' style='font: 9pt 굴림; background-color:#E6E6E6; border:1 solid black' name="cpu_name">
+                <option value="null">- 목록에서 원하는 제품을 고르십시요 - ( http://joapc.co.kr 
+                )</option>
+                <option value="null">------------------------------------</option>
+                <option value="2001">[intel] Intel 셀러론 850MHz --- \ 80,000 원</option>
+                <option value="2002">[intel] Intel 셀러론 1GHz --- \ 115,000 원</option>
+                <option value="2003">[intel] Intel P-4 1.5GHz 423 --- \ 225,000 
+                원</option>
+                <option value="2004">[intel] Intel P-4 1.7GHz 423 --- \ 270,000 
+                원</option>
+                <option value="2005">[intel] Intel P-4 1.8GHz 423 --- \ 390,000 
+                원</option>
+                <option value="2006">[intel] Intel P-4 1.5GHz 423/478 --- \ 225,000 
+                원</option>
+                <option value="2007">[intel] Intel P-4 1.7GHz 423/478 --- \ 295,000 
+                원</option>
+                <option value="2008">[intel] Intel P-4 1.8GHz 423/478 --- \ 410,000 
+                원</option>
+                <option value="2009">[intel] Intel P-4 2.0GHz --- \ 810,000 원</option>
+              </select>
+            </td>
+            <td align="center" width="50"> 
+              <input type='text' name='cpu_ea' size='3' maxlength='3' style='font: 9pt 굴림; background-color:#FFFFFF; border:1 solid black' value='1'>
+            </td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td align="center" width=150>RAM</td>
+            <td align="center" width=400> 
+              <select size='1' style='font: 9pt 굴림; background-color:#E6E6E6; border:1 solid black' name="ram_name">
+                <option value="null">- 목록에서 원하는 제품을 고르십시요 - ( http://joapc.co.kr 
+                )</option>
+                <option value="null">--------------------------------</option>
+                <option value="3001">[삼성] 128MB PC-133 --- \ 17,000 원</option>
+                <option value="3002">[삼성] 256MB PC-133 --- \ 35,000 원</option>
+                <option value="3003">[삼성] 128MB PC-100 --- \ 25,000 원</option>
+                <option value="3004">[삼성] 64MB RAMBUS RAM --- \ 29,000 원</option>
+                <option value="3005">[삼성] 128MB RAMBUS RAM --- \ 60,000 원</option>
+                <option value="3006">[삼성] 256MB RAMBUS RAM --- \ 130,000 원</option>
+              </select>
+            </td>
+            <td align="center" width="50"> 
+              <input type='text' name='ram_ea' size='3' maxlength='3' style='font: 9pt 굴림; background-color:#FFFFFF; border:1 solid black' value='1'>
+            </td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td align="center" width=150>HDD</td>
+            <td align="center" width=400> 
+              <select size='1' style='font: 9pt 굴림; background-color:#E6E6E6; border:1 solid black' name="hdd_name">
+                <option value="null">- 목록에서 원하는 제품을 고르십시요 - ( http://joapc.co.kr 
+                )</option>
+                <option value="null">----------------------------</option>
+                <option value="4001">[삼성] 20GB --- \ 125,000 원</option>
+                <option value="4002">[삼성] 30GB --- \ 140,000 원</option>
+                <option value="4003">[삼성] 40GB --- \ 155,000 원</option>
+                <option value="4004">[삼성] 60GB --- \ 220,000 원</option>
+                <option value="4005">[삼성] 40GB (7200RPM) --- \ 180,000 원</option>
+              </select>
+            </td>
+            <td align="center" width="50"> 
+              <input type='text' name='hdd_ea' size='3' maxlength='3' style='font: 9pt 굴림; background-color:#FFFFFF; border:1 solid black' value='1'>
+            </td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td align="center" width=150>VGA</td>
+            <td align="center" width=400> 
+              <select size='1' style='font: 9pt 굴림; background-color:#E6E6E6; border:1 solid black' name="vga_name">
+                <option value="null">- 목록에서 원하는 제품을 고르십시요 - ( http://joapc.co.kr 
+                )</option>
+                <option value="null">------------------------------</option>
+                <option value="5001">TNT2-M64 32MB --- \ 60,000 원</option>
+                <option value="5002">GEFORCE 32MB --- \ 78,000 원</option>
+                <option value="5003">[쟈네트 시스템] GEFORCE MX 200 32MB --- \ 85,000 
+                원</option>
+                <option value="5004">[쟈네트 시스템] GEFORCE MX 400 64MB --- \ 120,000 
+                원</option>
+                <option value="5005">[쟈네트 시스템] GEFORCE II GTS 64MB --- \ 180,000 
+                원</option>
+                <option value="5006">[ELSA] GLADIC 511 MX 400 32MB --- \ 130,000 
+                원</option>
+                <option value="5007">[ELSA] GLADIC 920 64MB --- \ 510,000 원</option>
+              </select>
+            </td>
+            <td align="center" width="50"> 
+              <input type='text' name='vga_ea' size='3' maxlength='3' style='font: 9pt 굴림; background-color:#FFFFFF; border:1 solid black' value='1'>
+            </td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td align="center" width=150>CASE</td>
+            <td align="center" width=400> 
+              <select size='1' style='font: 9pt 굴림; background-color:#E6E6E6; border:1 solid black' name="case_name">
+                <option value="null">- 목록에서 원하는 제품을 고르십시요 - ( http://joapc.co.kr 
+                )</option>
+                <option value="null">------------------------------</option>
+                <option value="6001">[LGE] LGC 4000 --- \ 40,000 원</option>
+                <option value="6002">[LGE] LGC 4500 --- \ 47,000 원</option>
+                <option value="6003">[LGE] LGC 5000 --- \ 50,000 원</option>
+                <option value="6004">[LGE] LGC 6000 --- \ 55,000 원</option>
+              </select>
+            </td>
+            <td align="center" width="50"> 
+              <input type='text' name='case_ea' size='3' maxlength='3' style='font: 9pt 굴림; background-color:#FFFFFF; border:1 solid black' value='1'>
+            </td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td align="center" width=150>SOUND</td>
+            <td align="center" width=400> 
+              <select size='1' style='font: 9pt 굴림; background-color:#E6E6E6; border:1 solid black' name="sound_name">
+                <option value="null">- 목록에서 원하는 제품을 고르십시요 - ( http://joapc.co.kr 
+                )</option>
+                <option value="null">------------------------------</option>
+                <option value="7001">[사운드블라스터] S/B PCI DIGITAL --- \ 43,000 원</option>
+                <option value="7002">[사운드블라스터] S/B LIVE DE5.1 --- \ 165,000 원</option>
+                <option value="7003">ESS-알레그로 --- \ 15,000 원</option>
+                <option value="7004">ESS-알레그로 GOLD --- \ 21,000 원</option>
+              </select>
+            </td>
+            <td align="center" width="50"> 
+              <input type='text' name='sound_ea' size='3' maxlength='3' style='font: 9pt 굴림; background-color:#FFFFFF; border:1 solid black' value='1'>
+            </td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td align="center" width=150>모니터</td>
+            <td align="center" width=400> 
+              <select size='1' style='font: 9pt 굴림; background-color:#E6E6E6; border:1 solid black' name="moniter_name">
+                <option value="null">- 목록에서 원하는 제품을 고르십시요 - ( http://joapc.co.kr 
+                )</option>
+                <option value="null">-------------------------------</option>
+                <option value="8001">[LG전자] LG 1771 --- \ 220,000 원</option>
+                <option value="8002">[LG전자] 775FT 17&quot;완전평면 --- \ 320,000 원</option>
+                <option value="8003">[LG전자] 1771FT 17&quot;완전평면 --- \ 350,000 
+                원</option>
+                <option value="8004">[LG전자] 795FT 17&quot;완전평면 --- \　 </option>
+                <option value="8005">[LG전자] CS911 19&quot;모니터 --- \ 430,000 원</option>
+                <option value="8006">[LG전자] 995FT 19&quot;완전평면 --- \ 500,000 원</option>
+              </select>
+            </td>
+            <td align="center" width="50"> 
+              <input type='text' name='moniter_ea' size='3' maxlength='3' style='font: 9pt 굴림; background-color:#FFFFFF; border:1 solid black' value='1'>
+            </td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td align="center" width=150>프린터</td>
+            <td align="center" width=400> 
+              <select size='1' style='font: 9pt 굴림; background-color:#E6E6E6; border:1 solid black' name="printer_name">
+                <option value="null">- 목록에서 원하는 제품을 고르십시요 - ( http://joapc.co.kr 
+                )</option>
+                <option value="null">---------------------------</option>
+                <option value="9001">[HP] HP-656C(USB 전용) --- \ 130,000 원</option>
+                <option value="9002">[HP] HP-840C --- \ 160,000 원</option>
+                <option value="9003">[HP] HP-948C --- \ 295,000 원</option>
+                <option value="9004">[HP] HP-960C --- \ 395,000 원</option>
+              </select>
+            </td>
+            <td align="center" width="50"> 
+              <input type='text' name='printer_ea' size='3' maxlength='3' style='font: 9pt 굴림; background-color:#FFFFFF; border:1 solid black' value='1'>
+            </td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td align="center" width=150>스캐너</td>
+            <td align="center" width=400> 
+              <select size='1' style='font: 9pt 굴림; background-color:#E6E6E6; border:1 solid black' name="scanner_name">
+                <option value="null">- 목록에서 원하는 제품을 고르십시요 - ( http://joapc.co.kr 
+                )</option>
+                <option value="null">---------------------------------</option>
+                <option value="91001">[HP] HP-2200C USB 전용 --- \ 145,000 원</option>
+                <option value="91002">[HP] HP-4400C --- \ 260,000 원</option>
+                <option value="91003">[HP] HP-5300C --- \ 305,000 원</option>
+                <option value="91004">[HP] HP-5400C --- \ 385,000 원</option>
+                <option value="91005">[HP] HP-7400c --- \ 710,000 원</option>
+              </select>
+            </td>
+            <td align="center" width="50"> 
+              <input type='text' name='scanner_ea' size='3' maxlength='3' style='font: 9pt 굴림; background-color:#FFFFFF; border:1 solid black' value='1'>
+            </td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td align="center" width=150>스피커</td>
+            <td align="center" width=400> 
+              <select size='1' style='font: 9pt 굴림; background-color:#E6E6E6; border:1 solid black' name="speaker_name">
+                <option value="null">- 목록에서 원하는 제품을 고르십시요 - ( http://joapc.co.kr 
+                )</option>
+                <option value="null">--------------------------------</option>
+                <option value="92001">[CAMAC] CAMAC 780 --- \ 8,000 원</option>
+                <option value="92002">[CAMAC] CAMAC 770 --- \ 14,000 원</option>
+                <option value="92003">[CAMAC] CAMAC 680 --- \ 22,000 원</option>
+              </select>
+            </td>
+            <td align="center" width="50"> 
+              <input type='text' name='speaker_ea' size='3' maxlength='3' style='font: 9pt 굴림; background-color:#FFFFFF; border:1 solid black' value='1'>
+            </td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td align="center" width=150>키보드</td>
+            <td align="center" width=400> 
+              <select size='1' style='font: 9pt 굴림; background-color:#E6E6E6; border:1 solid black' name="keyboard_name">
+                <option value="null">- 목록에서 원하는 제품을 고르십시요 - ( http://joapc.co.kr 
+                )</option>
+                <option value="null">-------------------------------</option>
+                <option value="93001">[LG] LG/S/S --- \ 13,000 원</option>
+                <option value="93002">[LG] LGK-3500 --- \ 27,000 원</option>
+                <option value="93003">[LG] LG내츄럴 --- \ 35,000 원</option>
+              </select>
+            </td>
+            <td align="center" width="50"> 
+              <input type='text' name='keyboard_ea' size='3' maxlength='3' style='font: 9pt 굴림; background-color:#FFFFFF; border:1 solid black' value='1'>
+            </td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td align="center" width=150>CD-ROM/DVD-ROM</td>
+            <td align="center" width=400> 
+              <select size='1' style='font: 9pt 굴림; background-color:#E6E6E6; border:1 solid black' name="cdrom_name">
+                <option value="null">- 목록에서 원하는 제품을 고르십시요 - ( http://joapc.co.kr 
+                )</option>
+                <option value="null">-------------------------------</option>
+                <option value="94001">[LG전자 CD-ROM] LG 52 배속 --- \ 45,000 원</option>
+                <option value="94004">[LG전자 DVD-ROM] LG DVD (12*40) --- \ 84,000 
+                원</option>
+              </select>
+            </td>
+            <td align="center" width="50"> 
+              <input type='text' name='cdrom_ea' size='3' maxlength='3' style='font: 9pt 굴림; background-color:#FFFFFF; border:1 solid black' value='1'>
+            </td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td align="center" width=150>CD-RW</td>
+            <td align="center" width=400> 
+              <select size='1' style='font: 9pt 굴림; background-color:#E6E6E6; border:1 solid black' name="cdrw_name">
+                <option value="null">- 목록에서 원하는 제품을 고르십시요 - ( http://joapc.co.kr 
+                )</option>
+                <option value="null">-------------------------------</option>
+                <option value="94002">[LG전자 CD-RW] LG 8160B(16*10*40) --- \ 165,000 
+                원</option>
+                <option value="94003">[LG전자 CD-RW] LG 8120B(12*8*32) --- \ 130,000 
+                원</option>
+              </select>
+            </td>
+            <td align="center" width="50"> 
+              <input type='text' name='cdrw_ea' size='3' maxlength='3' style='font: 9pt 굴림; background-color:#FFFFFF; border:1 solid black' value='1'>
+            </td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td align="center" width=150>FDD</td>
+            <td align="center" width=400> 
+              <select size='1' style='font: 9pt 굴림; background-color:#E6E6E6; border:1 solid black' name="fdd_name">
+                <option value="null">- 목록에서 원하는 제품을 고르십시요 - ( http://joapc.co.kr 
+                )</option>
+                <option value="null">--------------------------------</option>
+                <option value="95001">[F D D] 　 3.5&quot; --- \ 17,000 원</option>
+              </select>
+            </td>
+            <td align="center" width="50"> 
+              <input type='text' name='fdd_ea' size='3' maxlength='3' style='font: 9pt 굴림; background-color:#FFFFFF; border:1 solid black' value='1'>
+            </td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td align="center" width=150>마우스</td>
+            <td align="center" width=400> 
+              <select size='1' style='font: 9pt 굴림; background-color:#E6E6E6; border:1 solid black' name="mouse_name">
+                <option value="null">- 목록에서 원하는 제품을 고르십시요 - ( http://joapc.co.kr 
+                )</option>
+                <option value="null">--------------------------------</option>
+                <option value="95002">[마우스] A4 TECK --- \ 8,000 원</option>
+                <option value="95003">[마우스] M/S 휠 마우스 --- \ 25,000 원</option>
+              </select>
+            </td>
+            <td align="center" width="50"> 
+              <input type='text' name='mouse_ea' size='3' maxlength='3' style='font: 9pt 굴림; background-color:#FFFFFF; border:1 solid black' value='1'>
+            </td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td align="center" width=150>TV카드</td>
+            <td align="center" width=400> 
+              <select size='1' style='font: 9pt 굴림; background-color:#E6E6E6; border:1 solid black' name="tvcard_name">
+                <option value="null">- 목록에서 원하는 제품을 고르십시요 - ( http://joapc.co.kr 
+                )</option>
+                <option value="null">---------------------------</option>
+                <option value="96001">[TV 카드] 시그마 TV 리모콘 --- \ 70,000 원</option>
+              </select>
+            </td>
+            <td align="center" width="50"> 
+              <input type='text' name='tvcard_ea' size='3' maxlength='3' style='font: 9pt 굴림; background-color:#FFFFFF; border:1 solid black' value='1'>
+            </td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td align="center" width=150>CAM</td>
+            <td align="center" width=400> 
+              <select size='1' style='font: 9pt 굴림; background-color:#E6E6E6; border:1 solid black' name="cam_name">
+                <option value="null">- 목록에서 원하는 제품을 고르십시요 - ( http://joapc.co.kr 
+                )</option>
+                <option value="null">---------------------------</option>
+                <option value="96002">[CAM] ALPHA CAM --- \ 55,000 원</option>
+                <option value="96003">[CAM] Intel EASY 카메라 --- \ 55,000 원</option>
+                <option value="96004">[CAM] 3COM WEBCAM --- \ 65,000 원</option>
+              </select>
+            </td>
+            <td align="center" width="50"> 
+              <input type='text' name='cam_ea' size='3' maxlength='3' style='font: 9pt 굴림; background-color:#FFFFFF; border:1 solid black' value='1'>
+            </td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td align="center" width=150>파워</td>
+            <td align="center" width=400> 
+              <select size='1' style='font: 9pt 굴림; background-color:#E6E6E6; border:1 solid black' name="power_name">
+                <option value="null">- 목록에서 원하는 제품을 고르십시요 - (http://joapc.co.kr 
+                ) </option>
+                <option value="null">--------------------------------</option>
+                <option value="97001">[파워] KOSON/아이콘 250WATT --- \ 26,000 원</option>
+                <option value="97002">[파워] 세븐팀 250WATT --- \ 38,000 원</option>
+                <option value="97003">[파워] QRIO&amp;세븐팀 300 WATT --- \ 60,000 
+                원</option>
+                <option value="97004">[파워] SUN 300 WATT --- \ 48,000 원</option>
+                <option value="97005">[파워] 일반 파워 250WATT --- \ 16,000 원</option>
+              </select>
+            </td>
+            <td align="center" width="50"> 
+              <input type='text' name='power_ea' size='3' maxlength='3' style='font: 9pt 굴림; background-color:#FFFFFF; border:1 solid black' value='1'>
+            </td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td align="center" width=150>LAN카드</td>
+            <td align="center" width=400> 
+              <select size='1' style='font: 9pt 굴림; background-color:#E6E6E6; border:1 solid black' name="lancard_name">
+                <option value="null">- 목록에서 원하는 제품을 고르십시요 - (http://joapc.co.kr 
+                )</option>
+                <option value="null">--------------------------------</option>
+                <option value="97008">[LAN카드] QRIO 랜카드(10/100MBPS) --- \ 10,000 
+                원</option>
+                <option value="97009">[LAN카드] QRIO PCMCIA (10MBPS) --- \ 35,000 
+                원</option>
+                <option value="97010">[LAN카드] QRIO PCMCIA (10/100MBPS) --- \ 56,000 
+                원</option>
+                <option value="97011">[LAN카드] 3COM 랜카드(10/100MBPS) --- \ 55,000 
+                원</option>
+                <option value="97012">[KAN카드] 3COM PCMCIA (10/100MBPS) --- \ 120,000 
+                원</option>
+              </select>
+            </td>
+            <td align="center" width="50"> 
+              <input type='text' name='lancard_ea' size='3' maxlength='3' style='font: 9pt 굴림; background-color:#FFFFFF; border:1 solid black' value='1'>
+            </td>
+          </tr>
+          <tr bgcolor="#CCCCCC"> 
+            <td align="center" width=150>LAN허브</td>
+            <td align="center" width=400> 
+              <select size='1' style='font: 9pt 굴림; background-color:#E6E6E6; border:1 solid black' name="lanherb_name">
+                <option value="null">- 목록에서 원하는 제품을 고르십시요 - (http://joapc.co.kr 
+                ) </option>
+                <option value="null">--------------------------------</option>
+                <option value="97006">[LAN장치] QRIO 5PORT 허브 --- \ 30,000 원</option>
+                <option value="97007">[LAN장치] QRIO 8PORT 허브 --- \ 36,000 원</option>
+              </select>
+            </td>
+            <td align="center" width="50"> 
+              <input type='text' name='lanherb_ea' size='3' maxlength='3' style='font: 9pt 굴림; background-color:#FFFFFF; border:1 solid black' value='1'>
+            </td>
+          </tr>
+        </table>
+   
+    </td>
+  </tr>
+</table>
+
+  <table width="600" border="0" align="center" cellpadding="1" cellspacing="0" bgcolor="#666666">
+    <tr>
+      <td>
+        <table width="600" border="0" cellpadding="5" cellspacing="0">
+          <tr> 
+            <td bgcolor="#999999" width="400" align="center"><font color="#FFFFFF">2001 
+              조은 컴퓨터 - http://joapc.co.kr</font><font color="#666666"> </font></td>
+            <td bgcolor="#999999" width="200" align="center"><font color="#666666"> 
+              <input type="submit" name="assemble_to2" value="견적서 출력">
+              <input type="reset" name="assemble_to3" value="새로 고침">
+              </font></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<p>
+<div align="center"> 
+  <p> 
+    <? include "footer.php"; ?>
+  </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿div.recommend_goods {
+    width:265px;
+    display:inline-block;
+	border:1px solid #ffffff;
+    margin:auto;
+	cursor:pointer;
+	text-align:center;
+}
+div.recommend_wrapper {
+    width:1080px;
+    margin:auto;
+    text-align:left;
+}
+div.best_goods {
+	width:265px;
+	display:inline-block;
+	border:1px solid #ffffff;
+	margin:auto;
+	cursor:pointer;
+	text-align:center;
+}
+div.best_wrapper {
+	width:1080px;
+	margin:auto;
+	text-align:left;
+}
+div.inform_wrapper {
+	width:1080px;
+	margin:auto;
+	text-align:left;
+}
+div.inform_title {
+	width:355px;
+	display:inline-block;
+	margin:auto;
+}
+div.inform_content {
+	width:355px;
+	display:inline-block;
+	margin:auto;
+}

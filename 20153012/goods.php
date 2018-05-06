@@ -1,0 +1,10 @@
+<?php
+include("./top.html");
+?>
+<?php
+//goods.php
+	$category
+?>
+<?php
+include("./bottom.html");
+?>

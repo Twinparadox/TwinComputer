@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Editor Test</title>
+    <script type="text/javascript" src="./ckeditor/ckeditor.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/editor.css" />
+	<script>
+        CKEDITOR.config.width = "1080px";
+        CKEDITOR.replace('wTitle', {
+            filebrowserUploadUrl: 'upload/image'
+        });
+    </script>
+</head>
+<body>
+    <center>
+        <div class="editorWrapper">
+            <form action="./board_input.php" method="post">
+                <div><input type="text" name="wTitle" /></div>
+                <textarea name="wContent" class="ckeditor"></textarea>
+            </form>
+        </div>
+    </center>
+</body>
+</html>

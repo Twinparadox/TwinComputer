@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>트윈 컴퓨터 - 컴퓨터 전문 매장</title>
+    <!-- Header CSS -->
+    <style type="text/css">
+        span.top_divide_bar {
+            border-left: 1px solid #E0E0E0;
+            display: inline-block;
+            border-right: 1px solid #fff;
+            height: 9px;
+            margin-top: 4px;
+        }
+
+        div.logo {
+            display: inline-block;
+            margin: 15px 0px 0px 0px;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        div.Header_blank {
+            display: inline-block;
+        }
+
+        div.board_list {
+            display: inline-block;
+        }
+
+        div.board_icon {
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        div.board_divide_bar {
+            display: inline-block;
+            border-right: 2px solid #EFEFEF;
+            width: 2px;
+            height: 50px;
+            margin: 15px 20px 15px 20px;
+        }
+    </style>
+    <!-- Basic CSS -->
+    <!-- Menu CSS -->
+    <style type="text/css">
+        html {
+            word-break: break-all;
+        }
+
+        body {
+            font-family: 'Malgun Gothic';
+            text-align: center;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img, fieldset {
+            border: 0;
+        }
+
+        ul, ol, li {
+            list-style: none;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .menu_test {
+            clear: both;
+            position: relative;
+            background: #fff;
+            height: 50px;
+            line-height: 50px;
+            width: 1080px;
+            margin: 0 auto;
+        }
+
+            .menu_test .float_leftmenu {
+                float: left;
+                width: 120px;
+                height: 50px;
+                border-right: 1px solid #CCC;
+                font-size: 13px;
+                color: #333;
+                font-weight: normal;
+                box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                text-shadow: none;
+            }
+
+                .menu_test .float_leftmenu:hover {
+                    background: #0CF;
+                    font-weight: bold;
+                    color: #fff;
+                }
+
+                    .menu_test .float_leftmenu:hover .open_menu {
+                        display: block;
+                    }
+
+                .menu_test .float_leftmenu .open_menu {
+                    clear: both;
+                    display: none;
+                    background: #0CF;
+                    width: 180px;
+                }
+
+                    .menu_test .float_leftmenu .open_menu li {
+                        border-top: 1px solid #fff;
+                    }
+
+                        .menu_test .float_leftmenu .open_menu li:hover {
+                            background: #06F;
+                            color: #FC0;
+                        }
+    </style>
+</head>
+<body>
+    <!--Header-->
+    <div style="width: 100%; background-color: #fafafa; height: 25px;">
+        <div style="width: 1080px; text-align: right; padding-top: 3px; font-size: 8pt; margin: auto;">
+            <span class="top_menu">
+                <a href="">로그인</a>
+            </span>
+            <span class="top_divide_bar"></span>
+            <span class="top_menu">
+                <a href="" id="trigger">회원가입</a>
+            </span>
+            <span class="top_divide_bar"></span>
+            <span class="top_menu"><a href="">마이페이지</a></span>
+            <span class="top_divide_bar"></span>
+            <span class="top_menu"><a href="">주문배송조회</a></span>
+            <span class="top_divide_bar"></span>
+            <span class="top_menu"><a href="">장바구니</a></span>
+        </div>
+    </div>
+</body>
+</html>

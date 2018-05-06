@@ -1,0 +1,199 @@
+<html>
+<head><title> 제품추가 양식 </title>
+<style type="text/css">
+<!--
+.content {  font-size: 12px; line-height: 130%; color: #666666}
+
+BODY
+{ 
+scrollbar-face-color:#FFFFFF;
+scrollbar-shadow-color:#CCCCCC;
+scrollbar-highlight-color:#CCCCCC;
+scrollbar-3dlight-color:#FFFFFF; 
+scrollbar-darkshadow-color:#FFFFFF;
+scrollbar-track-color:#FFFFFF;
+scrollbar-arrow-color:#CCCCCC
+}
+
+    A:link    {font: 10pt GulimChe,굴림체; color: black; text-decoration: none}
+    A:active  {font: 10pt GulimChe,굴림체; color: black; text-decoration: none}
+    A:visited {font: 10pt GulimChe,굴림체; color: black; text-decoration: none}
+        A:hover   {text-decoration: underline;}
+    td        {font: 10pt GulimChe,굴림체;}
+    .tdw      {font: bold 10pt GulimChe,굴림체;}
+    .font     {font: bold 10pt GulimChe,굴림체;}
+    .netist   {font: bold 10pt GulimChe,굴림체; color: gray;}
+//-->     
+</style>
+</head>
+
+<body>
+<div align="center">
+  <table width="650" border="0" cellpadding="5" cellspacing="0" align="center">
+    <tr> 
+      <td><b><font size="2">제품을 추가할 경우, 주의 사항 <font color="#FF0000">! </font></font></b></td>
+    </tr>
+    <tr> 
+      <td><font size="2" class="content">1. 제품번호는 고유한 제품식별번호이므로, 중복이 되면 안된다.<br>
+        그러므로, <b>제품리스트</b>에서 <b>마지막 제품 번호</b>를 확인한 후에, 제품추가양식에서 다음 번호를 추가해야 한다.<br>
+        2. 아래의 <b>제품번호 코드표</b>에 맞게 입력을 해야 나중에 관리가 쉬워집니다. (꼭! 참고하세요~)</font></td>
+    </tr>
+  </table>
+  <br>
+  <b>제품추가양식 </b> </div>
+<form name="signform" method="post" action="post.php">
+
+  <table width="500" border="0" cellspacing="1" cellpadding="0" align="center">
+    <tr>
+      <td bgColor="#666666" align="center"> 
+        <table width="500" border="0" cellspacing="1" cellpadding="5" align="center">
+          <tr> 
+            <td width="150" align="center" bgColor="#999999"><font size="2" color="#FFFFFF">제 
+              품 번 호</font></td>
+            <td width="350" bgColor="#CCCCCC"> 
+              <input type="text" name="new_id" size="15" maxlength="40">
+            </td>
+          </tr>
+          <tr> 
+            <td align="center" bgColor="#999999" width="150"><font size="2" color="#FFFFFF">제 
+              품 종 류</font></td>
+            <td bgColor="#CCCCCC" width="350"> 
+              <select size='1' style='font: 9pt 굴림; background-color:#E6E6E6; border:1 solid black' name="new_kind">
+                <option>제품 종류 선택</option>
+                <option>--------------</option>
+                <option value="마더보드">마더보드</option>
+                <option value="CPU">CPU</option>
+                <option value="RAM">RAM</option>
+                <option value="HDD">HDD</option>
+                <option value="VGA">VGA</option>
+                <option value="CASE">CASE</option>
+                <option value="SOUND">SOUND</option>
+                <option value="모니터">모니터</option>
+                <option value="프린터">프린터</option>
+                <option value="스캐너">스캐너</option>
+                <option value="스피커">스피커</option>
+                <option value="키보드">키보드</option>
+                <option value="CD-ROM/CD-RW">CD-ROM/CD-RW</option>
+                <option value="FDD/마우스">FDD/마우스</option>
+                <option value="TV카드/CAM">TV카드/CAM</option>
+                <option value="파워/LAN">파워/LAN</option>
+              </select>
+            </td>
+          </tr>
+          <tr> 
+            <td align="center" bgColor="#999999" width="150"><font size="2" color="#FFFFFF">제 
+              품 명</font></td>
+            <td bgColor="#CCCCCC" width="350"> 
+              <input type="text" name="new_name" size="45" maxlength="40">
+            </td>
+          </tr>
+          <tr> 
+            <td align="center" bgColor="#999999" width="150"><font size="2" color="#FFFFFF">제 
+              품 가 격</font></td>
+            <td bgColor="#CCCCCC" width="350"> 
+              <input type="text" name="new_price" size="15" maxlength="40">
+              원</td>
+          </tr>
+          <tr bgcolor="#999999"> 
+            <td align="center" colspan="2"> <font size=2> 
+              <input type="submit" value="제품추가">
+              <input type="reset" value="취   소">
+              </font> </td>
+          </tr>
+        </table>
+
+   </td>
+</tr>
+</table>
+
+</form>
+<p align="center"> <a href="list.html">제품목록보기 </a>| <a href="assemble.html">PC 
+  견적서</a>
+<p align="center"><br>
+<table width="500" border="0" cellpadding="1" cellspacing="0" bgcolor="#666666" align="center">
+  <tr> 
+    <td> 
+      <table width="500" border="0" cellpadding="3" cellspacing="1">
+        <tr align="center"> 
+          <td colspan="2" class="content"><b><font size="2" color="#FFFFFF">### 
+            제품번호 코드표 ###</font></b></td>
+        </tr>
+        <tr align="center" bgcolor="#999999"> 
+          <td class="content"><font color="#FFFFFF">제품 종류</font></td>
+          <td class="content"><font color="#FFFFFF">제품번호 (네자리 숫자)</font></td>
+        </tr>
+        <tr bgcolor="#E7E7E7"> 
+          <td width="133" class="content" align="center"><font size="2">마더보드</font></td>
+          <td width="497" class="content"><font size="2">1xxx (예: 1001, 1002, 
+            ... ,1023,...)</font></td>
+        </tr>
+        <tr bgcolor="#E7E7E7"> 
+          <td width="133" class="content" align="center"><font size="2">CPU</font></td>
+          <td width="497" class="content">2xxx (예 : 2001, 2002, ... , 2034, ... 
+            , 2459, ...)</td>
+        </tr>
+        <tr bgcolor="#E7E7E7"> 
+          <td width="133" class="content" align="center">RAM</td>
+          <td width="497" class="content">3xxx</td>
+        </tr>
+        <tr bgcolor="#E7E7E7"> 
+          <td width="133" class="content" align="center">HDD</td>
+          <td width="497" class="content">4xxx</td>
+        </tr>
+        <tr bgcolor="#E7E7E7"> 
+          <td width="133" class="content" align="center">VGA</td>
+          <td width="497" class="content">5xxx</td>
+        </tr>
+        <tr bgcolor="#E7E7E7"> 
+          <td width="133" class="content" align="center">CASE</td>
+          <td width="497" class="content"> 6xxx</td>
+        </tr>
+        <tr bgcolor="#E7E7E7"> 
+          <td width="133" class="content" align="center">SOUND</td>
+          <td width="497" class="content">7xxx</td>
+        </tr>
+        <tr bgcolor="#E7E7E7"> 
+          <td width="133" class="content" align="center">모니터</td>
+          <td width="497" class="content">8xxx</td>
+        </tr>
+        <tr bgcolor="#E7E7E7"> 
+          <td width="133" class="content" align="center">프린터</td>
+          <td width="497" class="content">9xxx</td>
+        </tr>
+        <tr bgcolor="#E7E7E7"> 
+          <td width="133" class="content" align="center">스캐너</td>
+          <td width="497" class="content"> 91xxx (예 : 91001, 91002, 91003, ...)</td>
+        </tr>
+        <tr bgcolor="#E7E7E7"> 
+          <td width="133" class="content" align="center">스피커</td>
+          <td width="497" class="content"> 92xxx</td>
+        </tr>
+        <tr bgcolor="#E7E7E7"> 
+          <td width="133" class="content" align="center">키보드</td>
+          <td width="497" class="content">93xxx</td>
+        </tr>
+        <tr bgcolor="#E7E7E7"> 
+          <td width="133" class="content" align="center">CD-ROM/CD-RW</td>
+          <td width="497" class="content">94xxx</td>
+        </tr>
+        <tr bgcolor="#E7E7E7"> 
+          <td width="133" class="content" align="center">FDD/마우스</td>
+          <td width="497" class="content">95xxx</td>
+        </tr>
+        <tr bgcolor="#E7E7E7"> 
+          <td width="133" class="content" align="center">TV카드/CAM</td>
+          <td width="497" class="content">96xxx</td>
+        </tr>
+        <tr bgcolor="#E7E7E7"> 
+          <td width="133" class="content" align="center">파워/LAN</td>
+          <td width="497" class="content">97xxx</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<div align="center"><br>
+  <? include "footer.php"; ?>
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<?php
+include("./top.html");
+?>
+<html>
+<head>
+<script language="Javascript">
+	function clearText(obj)
+	{
+		if(obj.defaultValue==obj.value) {
+			obj.value='';
+		}
+		else if(obj.value==''){
+			obj.value=obj.defaultValue;
+		}
+	}
+	function checkCase(obj)
+	{
+		if(obj.value=="ComputerCase") {
+			document.getElementById("pic").style.display="table-row";
+		}
+		else {
+			document.getElementById("pic").style.display="none";
+		}
+	}
+</script>
+</head>
+<body>
+<center>
+<form method=post action="./add_parts.php" name=addParts enctype="multipart/form-data">
+<table width=1080 border=0 style='margin-top:100px; margin-bottom:100px;'>
+<tr><td>부품 종류</td><td>
+<select name=parts onchange="checkCase(this)">
+<option value="CPU">CPU</option>
+<option value="Mainboard">메인보드</option>
+<option value="RAM">RAM</option>
+<option value="VGA">그래픽카드</option>
+<option value="SSD">SSD</option>
+<option value="HDD">하드디스크</option>
+<option value="ODD">ODD</option>
+<option value="ComputerCase">케이스</option>
+<option value="PSU">파워서플라이</option>
+</select></td></tr>
+<tr><td>제품 명</td><td><input type=text name=partsName size=50 value="제품의 간략한 주요 스펙과 브랜드명을 같이 작성해주세요" onFocus='clearText(this)' onBlur='clearText(this)'></td></tr>
+<tr><td>예시</td><td><input type=text disabled value="인텔 i5-4690K(3.9GHz)"></td></tr>
+<tr id="pic" style='display:none;'><td>제품(케이스) 사진</td><td><input type=file name=userfile>&nbsp;<b style='font-size:9pt; color:red;'>고객에게 노출될 사진입니다.</b></td></tr>
+<tr><td>제품 가격</td><td><input type=text name=partsPrice size=10></td></tr>
+<tr><td colspan=2><input type=submit value='부품 등록'>&nbsp;&nbsp;</form><a href='./add_desktop.php'><input type=button value='데스크탑 등록'></a></td></tr>
+</table>
+</center>
+</body>
+</html>
+<?php
+include("./bottom.html");
+?>

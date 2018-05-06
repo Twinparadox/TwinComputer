@@ -1,0 +1,35 @@
+﻿span.top_divide_bar {
+    border-left: 1px solid #E0E0E0;
+    display: inline-block;
+    border-right: 1px solid #fff;
+    height: 9px;
+    margin-top: 4px;
+}
+
+div.logo {
+    display: inline-block;
+    margin: 15px 0px 0px 0px;
+    cursor: pointer;
+    text-align: left;
+}
+
+div.Header_blank {
+    display: inline-block;
+}
+
+div.board_list {
+    display: inline-block;
+}
+
+div.board_icon {
+    display: inline-block;
+    cursor: pointer;
+}
+
+div.board_divide_bar {
+    display: inline-block;
+    border-right: 2px solid #EFEFEF;
+    width: 2px;
+    height: 50px;
+    margin: 15px 20px 15px 20px;
+}

@@ -1,0 +1,37 @@
+<?php include("./top.html");?>
+<html>
+	<title>관리자 로그인</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+	<body class="basic">
+    <div class="login_wrapper">
+        <div class="login_image">
+            <a href='login.html'><img src="img/page_admin_login.png" width="640" height="220"/></a>
+        </div>
+        <div class="login_box">
+            <div class="login_box_title">관리자 로그인</div>
+            <div class="login_box_input">
+                <form action="admin_login.php" method="post">
+                    <div class="login_info">
+                        <div style="margin-bottom:5px">
+                            <div class="login_info_left">아이디</div>
+                            <div class="login_info_right">
+                                <input type="text" name="w_id" size="15" />
+                            </div>
+                        </div>
+                        <div style="margin-bottom:5px">
+                            <div class="login_info_left">비밀번호</div>
+                            <div class="login_info_right">
+                                <input type="password" name="w_pw" size="15" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="login_button">
+                        <input type="image" src="img/button/btn_login.png" height="60" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<?php include("./bottom.html");?>

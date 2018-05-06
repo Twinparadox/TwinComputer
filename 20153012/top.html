@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>트윈 컴퓨터 - 컴퓨터 전문 매장</title>
+    <!-- Header CSS -->
+    <link rel="stylesheet" type="text/css" href="css/header.css" />
+    <!-- Menu CSS-->
+    <link rel="stylesheet" type="text/css" href="css/menu.css" />
+    <!-- Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<?php if(!$UserID){?>
+<body class="basic">
+    <!--Header-->
+    <div style="width: 100%; background-color:#F0F0F0; height: 25px;">
+        <div style="width: 1080px; text-align: right; padding-top: 3px; font-size: 8pt; margin: auto;">
+            <span class="top_menu">
+                <a href="./login.html">로그인</a>
+            </span>
+            <span class="top_divide_bar"></span>
+            <span class="top_menu">
+                <a href="./join.php" >회원가입</a>
+            </span>
+            <span class="top_divide_bar"></span>
+            <span class="top_menu"><a href="./mypage.php">마이페이지</a></span>
+            <span class="top_divide_bar"></span>
+            <span class="top_menu"><a href="./check.php">주문배송조회</a></span>
+            <span class="top_divide_bar"></span>
+            <span class="top_menu"><a href="./showbag.php">장바구니</a></span>
+        </div>
+    </div>
+<?php }else {if($isAdmin==0){?>
+<body class="basic">
+    <!--Header-->
+    <div style="width: 100%; background-color: #F0F0F0; height: 25px;">
+        <div style="width: 1080px; text-align: right; padding-top: 3px; font-size: 8pt; margin: auto;">
+			<span class="top_menu">
+<?php echo($UserID);?>
+			</span>
+			<span class="top_divide_bar"></span>
+			<span class="top_menu">
+<?php 
+$host = "localhost";
+$ID = "root";
+$PW = "apmsetup";
+$DB="db20153012";
+
+$con=mysql_connect($host,$ID,$PW);
+mysql_select_db($DB,$con);
+$result=mysql_query("select * from userDB where userID='$UserID'",$con);
+$point=mysql_result($result,0,"userPoint");
+$point=number_format($point);
+echo("$point 포인트");
+
+mysql_close($con);
+?>
+			</span>
+			<span class="top_divide_bar"></span>
+            <span class="top_menu">
+                <a href="./logout.php">로그아웃</a>
+            </span>
+            <span class="top_divide_bar"></span>
+            <span class="top_menu"><a href="./mypage.php">마이페이지</a></span>
+            <span class="top_divide_bar"></span>
+            <span class="top_menu"><a href="./check.php?period=0">주문배송조회</a></span>
+            <span class="top_divide_bar"></span>
+            <span class="top_menu"><a href="./showbag.php">장바구니</a></span>
+        </div>
+    </div>
+<?php }else{?>
+<body class="basic">
+    <!--Header-->
+    <div style="width: 100%; background-color: #F0F0F0; height: 25px;">
+        <div style="width: 1080px; text-align: right; padding-top: 3px; font-size: 8pt; margin: auto;">
+            <span class="top_menu">관리자</span>
+			<span class="top_divide_bar"></span>
+			<span class="top_menu">
+                <a href="./logout.php">로그아웃</a>
+            </span>
+			<span class="top_divide_bar"></span>
+			<span class="top_menu"><a href="./member_list.php">회원목록</a></span>
+            <span class="top_divide_bar"></span>
+            <span class="top_menu"><a href="./order_list.php">주문현황</a></span>
+            <span class="top_divide_bar"></span>
+            <span class="top_menu"><a href="./inventory.php">재고관리</a></span>
+            <span class="top_divide_bar"></span>
+            <span class="top_menu"><a href="./add_product.html">상품추가</a></span>
+			<span class="top_divide_bar"></span>
+            <span class="top_menu"><a href="./goods_list.php?category=1000">상품수정</a></span>
+        </div>
+    </div>
+<?php }}?>
+    <!--Header Menu-->
+    <div class="Wrapper">
+        <div class="logo" width="240px">
+            <a href="./index.php"><img width="240" height="80" src="main_logo.png" /></a>
+        </div>
+        <div class="Header_blank" width="460px">
+			<table width=460 border=0><tr><td></td></tr></table>
+        </div>
+        <div class="board_list" width="380px">
+            <div class="board_icon">
+                <a href="board.php?id=QnA"><img src="icon/icon_qna.png" width="80" height="80" onmouseover="this.src='icon/icon_qna_on.png'" onmouseout="this.src='icon/icon_qna.png'" /></a>
+            </div>
+            <div class="board_divide_bar"></div>
+            <div class="board_icon">
+                <a href="board.php?id=After"><img src="icon/icon_after.png" width="80" height="80" onmouseover="this.src='icon/icon_after_on.png'" onmouseout="this.src='icon/icon_after.png'" /></a>
+            </div>
+            <div class="board_divide_bar"></div>
+            <div class="board_icon">
+                <a href="board.php?id=Event"><img src="icon/icon_event.png" width="80" height="80" onmouseover="this.src='icon/icon_event_on.png'" onmouseout="this.src='icon/icon_event.png'" /></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Banner -->
+<?php include("./banner.html");?>
+
+    <!-- Menu Bar -->
+    <div class="menu_test">
+        <ul>
+            <li class="float_leftmenu" style='border-left:1px solid #CCC;'>
+                <a href=# class="basic"><div>데스크탑</div></a>
+                <div class="open_menu">
+                    <ul>
+                        <li><a href="desktop.php?category[0]=30&category[1]=40" class="basic"><div>30 - 40만원대</div></a></li>
+                        <li><a href="desktop.php?category[0]=50&category[1]=60" class="basic"><div>50 - 60만원대</div></a></li>
+                        <li><a href="desktop.php?category[0]=70&category[1]=80" class="basic"><div>70 - 80만원대</div></a></li>
+                        <li><a href="desktop.php?category[0]=90&category[1]=100" class="basic"><div>90만원대 이상</div></a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="float_leftmenu"><a href="goods_show.php?category=1000" class="basic"><div>노트북</div></a></li>
+            <li class="float_leftmenu">
+                <a href="goods_show.php?category=2000" class="basic"><div>모니터</div></a>
+            </li>
+            <li class="float_leftmenu"><a href="goods_show.php?category=3000" class="basic"><div>입력장치</div></a></li>
+            <li class="float_leftmenu"><a href="goods_show.php?category=4000" class="basic"><div>음향장치</div></a></li>
+            <li class="float_leftmenu">
+                <a href=# class="basic"><div>네트워크/프린터</div></a>
+                <div class="open_menu">
+                    <ul>
+                        <li><a href="goods_show.php?category=5001" class="basic"><div>유·무선 공유기</div></a></li>
+                        <li><a href="goods_show.php?category=5002" class="basic"><div>무선 수신기</div></a></li>
+                        <li><a href="goods_show.php?category=5003" class="basic"><div>케이블</div></a></li>
+                        <li><a href="goods_show.php?category=5004" class="basic"><div>잉크젯 프린터</div></a></li>
+                        <li><a href="goods_show.php?category=5005" class="basic"><div>레이저 흑백 프린터</div></a></li>
+                        <li><a href="goods_show.php?category=5006" class="basic"><div>레이저 컬러 프린터</div></a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="float_leftmenu">
+                <a href=# class="basic"><div>저장장치/기타</div></a>
+                <div class="open_menu">
+                    <ul>
+                        <li><a href="goods_show.php?category=6001" class="basic"><div>USB</div></a></li>
+                        <li><a href="goods_show.php?category=6002" class="basic"><div>외장HDD</div></a></li>
+                        <li><a href="goods_show.php?category=6003" class="basic"><div>외장ODD</div></a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="float_leftmenu"><a href="goods_show.php?category=7000" class="basic"><div>소프트웨어</div></a></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+td {
+	font-size:10pt;
+	text-align:center;
+	padding-top:10px;
+}
+
+tr.devide{
+	border-bottom:2px solid silver;
+	height:50px;
+}
+
+table {
+	border-top:1px solid black;
+	border-bottom:1px solid black;
+	margin-bottom:30px;
+}

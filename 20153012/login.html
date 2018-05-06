@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<?php include("./top.html");?>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>로그인</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+	<script language="Javascript">
+	function findID() {
+		window.open("./findid.html","아이디 찾기","width=500, height=200, scrollbars=no, resizable=no, target=_new");
+	}
+	function findPW() {
+		window.open("./findpw.html","비밀번호 찾기","width=500, height=200, scrollbars=no, resizable=no, target=_new");
+	}
+	</script>
+</head>
+<body class="basic">
+    <div class="login_wrapper">
+        <div class="login_image">
+            <a href='admin_login.html'><img src="img/page_login.png" width="640" height="220"/></a>
+        </div>
+        <div class="login_box">
+            <div class="login_box_title">회원 로그인</div>
+            <div class="login_box_input">
+                <form action="login.php" method="post">
+                    <div class="login_info">
+                        <div style="margin-bottom:5px">
+                            <div class="login_info_left">아이디</div>
+                            <div class="login_info_right">
+                                <input type="text" name="w_id" size="15" />
+                            </div>
+                        </div>
+                        <div style="margin-bottom:5px">
+                            <div class="login_info_left">비밀번호</div>
+                            <div class="login_info_right">
+                                <input type="password" name="w_pw" size="15" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="login_button">
+                        <input type="image" src="img/button/btn_login.png" height="60" />
+                    </div>
+                </form>
+            </div>
+        </div>
+		<div class="sub_box">
+			<div class="sub_content"><a href="./join.php">아직 회원이 아니신가요?</a></div>
+			<div class="sub_content"><a href=# onclick="findID()">아이디를 잊어버리셨나요?</a></div>
+			<div class="sub_content"><a href=# onclick="findPW()">비밀번호를 잊어버리셨나요?</a></div>
+		</div>
+    </div>
+</body>
+</html>
+<?php include("./bottom.html");?>

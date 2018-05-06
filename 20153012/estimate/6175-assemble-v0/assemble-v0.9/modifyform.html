@@ -1,0 +1,132 @@
+<html>
+<head><title> 수정 및 삭제 </title>
+<style type="text/css">
+<!--
+.content {  font-size: 12px; line-height: 130%; color: #666666}
+
+BODY
+{ 
+scrollbar-face-color:#FFFFFF;
+scrollbar-shadow-color:#CCCCCC;
+scrollbar-highlight-color:#CCCCCC;
+scrollbar-3dlight-color:#FFFFFF; 
+scrollbar-darkshadow-color:#FFFFFF;
+scrollbar-track-color:#FFFFFF;
+scrollbar-arrow-color:#CCCCCC
+}
+
+    A:link    {font: 10pt GulimChe,굴림체; color: black; text-decoration: none}
+    A:active  {font: 10pt GulimChe,굴림체; color: black; text-decoration: none}
+    A:visited {font: 10pt GulimChe,굴림체; color: black; text-decoration: none}
+        A:hover   {text-decoration: underline;}
+    td        {font: 10pt GulimChe,굴림체;}
+    .tdw      {font: bold 10pt GulimChe,굴림체;}
+    .font     {font: bold 10pt GulimChe,굴림체;}
+    .netist   {font: bold 10pt GulimChe,굴림체; color: gray;}
+//-->     
+</style>
+
+</head>
+<body>
+<div align="center"><b>제품수정양식</b> </div>
+<form name="modify" method="post" action="modify.php">
+    <input type="hidden" name="new_id" value="<? echo ("$my_id"); ?>">
+
+  <table width="500" border="0" cellspacing="1" cellpadding="0" align="center">
+    <tr>
+      <td bgColor="#666666" align="center"> 
+        <table width="500" border="0" cellspacing="1" cellpadding="5" align="center">
+          <tr> 
+            <td width="150" align="center" bgColor="#999999"><font size="2" color="#FFFFFF">제 
+              품 번 호</font></td>
+            <td width="350" bgColor="#CCCCCC">  
+              <? echo ("$my_id"); ?>
+              </td>
+          </tr>
+          <tr> 
+            <td align="center" bgColor="#999999" width="150"><font size="2" color="#FFFFFF">제 
+              품 종 류</font></td>
+            <td bgColor="#CCCCCC" width="350"> 
+             <input type="text" name="new_kind" size="20" maxlength="40" value="<? echo  ("$my_kind"); ?>">
+            </td>
+          </tr>
+          <tr> 
+            <td align="center" bgColor="#999999" width="150"><font size="2" color="#FFFFFF">제 
+              품 명</font></td>
+            <td bgColor="#CCCCCC" width="350"> 
+              <input type="text" name="new_name" size="50" maxlength="40" value="<? echo ("$my_name"); ?>">
+            </td>
+          </tr>
+          <tr> 
+            <td align="center" bgColor="#999999" width="150"><font size="2" color="#FFFFFF">제 
+              품 가 격</font></td>
+            <td bgColor="#CCCCCC" width="350"> 
+              <input type="text" name="new_price" size="20" maxlength="40" value="<? echo ("$my_price"); ?>">
+              원</td>
+          </tr>
+          <tr bgcolor="#999999"> 
+            <td align="center" colspan="2"> <font size=2> 
+              <input type="submit" value="제품수정">
+              </font> </td>
+          </tr>
+        </table>
+
+   </td>
+</tr>
+</table>
+
+</form>
+<p align="center">&nbsp;
+<p align="center"><b>제품삭제양식</b> 
+<form name="delete" method="post" action="delete_check.htm">
+   <input type="hidden" name="new_id" value="<? echo ("$my_id"); ?>">
+  <table width="500" border="0" cellspacing="1" cellpadding="0" align="center">
+    <tr>
+      <td bgColor="#666666" align="center"> 
+        <table width="500" border="0" cellspacing="1" cellpadding="5" align="center">
+          <tr> 
+            <td width="150" align="center" bgColor="#999999"><font size="2" color="#FFFFFF">제 
+              품 번 호</font></td>
+            <td width="350" bgColor="#CCCCCC"> <font size="2"> 
+              <? echo ("$my_id"); ?>
+              </font></td>
+          </tr>
+          <tr> 
+            <td align="center" bgColor="#999999" width="150"><font size="2" color="#FFFFFF">제 
+              품 종 류</font></td>
+            <td bgColor="#CCCCCC" width="350"> <font size="2"> 
+              <? echo ("$my_kind"); ?>
+              </font></td>
+          </tr>
+          <tr> 
+            <td align="center" bgColor="#999999" width="150"><font size="2" color="#FFFFFF">제 
+              품 명</font></td>
+            <td bgColor="#CCCCCC" width="350"> <font size="2"> 
+              <? echo ("$my_name"); ?>
+              </font></td>
+          </tr>
+          <tr> 
+            <td align="center" bgColor="#999999" width="150"><font size="2" color="#FFFFFF">제 
+              품 가 격</font></td>
+            <td bgColor="#CCCCCC" width="350"> <font size="2"> 
+              <? echo ("$my_price"); ?> 원
+              </font></td>
+          </tr>
+          <tr bgcolor="#999999"> 
+            <td align="center" colspan="2"> <font size=2> 
+              <input type="submit" value="제품삭제">
+              </font> </td>
+          </tr>
+        </table>
+
+   </td>
+</tr>
+</table>
+
+</form>
+<p align="center"> <a href="list.html">제품목록보기 </a>| <a href="assemble.html">PC 
+  견적서</a>
+<p align="center"> 
+  <? include "footer.php"; ?>
+</body>
+</html>

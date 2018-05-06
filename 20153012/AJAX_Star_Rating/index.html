@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>http://www.blueb.co.kr</title>
+<style type="text/css">
+#star ul.star { list-style: none; margin: 0; padding: 0; width: 85px; height: 20px; left: 10px; top: -5px; position: relative; float: left; background: url('stars.gif') repeat-x; cursor: pointer; }
+#star li { padding: 0; margin: 0; float: left; display: block; width: 85px; height: 20px; text-decoration: none; text-indent: -9000px; z-index: 20; position: absolute; padding: 0; }
+#star li.curr { background: url('stars.gif') left 25px; font-size: 1px; }
+#star div.user { left: 15px; position: relative; float: left; font-size: 13px; font-family: arial; color: #888; }
+</style>
+
+<script type="text/javascript">
+function $(v,o) { 
+	return((typeof(o)=='object'?o:document).getElementById(v)); 
+	}
+
+function $S(o) { return((typeof(o)=='object'?o:$(o)).style); }
+function agent(v) { return(Math.max(navigator.userAgent.toLowerCase().indexOf(v),0)); }
+function abPos(o) { 
+	var o=(typeof(o)=='object'?o:$(o)), z={X:0,Y:0}; 
+	while(o!=null) { 
+		z.X+=o.offsetLeft; 
+		z.Y+=o.offsetTop; 
+		o=o.offsetParent; 
+		};
+		return(z); 
+}
+function XY(e,v) { 
+	var o=agent('msie')?{
+	'X':event.clientX+document.body.scrollLeft,'Y':event.clientY+document.body.scrollTop}:{'X':e.pageX,'Y':e.pageY}; return(v?o[v]:o); }
+
+star={};
+
+star.mouse=function(e,o) { if(star.stop || isNaN(star.stop)) { star.stop=0;
+
+	document.onmousemove=function(e) { var n=star.num;
+	
+		var p=abPos($('star'+n)), x=XY(e), oX=x.X-p.X, oY=x.Y-p.Y; star.num=o.id.substr(4);
+
+		if(oX<1 || oX>84 || oY<0 || oY>19) { star.stop=1; star.revert(); }
+		
+		else {
+
+			$S('starCur'+n).width=oX+'px';
+			$S('starUser'+n).color='#111';
+			$('starUser'+n).innerHTML=Math.round(oX/84*100)+'%';
+		}
+	};
+} };
+
+star.update=function(e,o) { var n=star.num, v=parseInt($('starUser'+n).innerHTML);
+
+	n=o.id.substr(4); $('starCur'+n).title=v;
+
+	req=new XMLHttpRequest(); req.open('GET','/AJAX_Star_Vote.php?vote='+(v/100),false); req.send(null);    
+
+};
+
+star.revert=function() { var n=star.num, v=parseInt($('starCur'+n).title);
+
+	$S('starCur'+n).width=Math.round(v*84/100)+'px';
+	$('starUser'+n).innerHTML=(v>0?Math.round(v)+'%':'');
+	$('starUser'+n).style.color='#888';
+	
+	document.onmousemove='';
+
+};
+
+star.num=0;
+
+</script>
+</head>
+<body>
+
+<div id="star">
+	<ul id="star0" class="star" onmousedown="star.update(event,this)" onmousemove="star.mouse(event,this)" title="Rate This!">
+		<li id="starCur0" class="curr" title="98" style="width: 82px;"></li>
+	</ul>
+
+	<div style="color: rgb(136, 136, 136);" id="starUser0" class="user">98%</div>
+	<br style="clear: both;">
+
+	<ul id="star1" class="star" onmousedown="star.update(event,this)" onmousemove="star.mouse(event,this)" title="Rate This!">
+		<li id="starCur1" class="curr" title="50" style="width: 42px;"></li>
+	</ul>
+	
+	<div style="color: rgb(136, 136, 136);" id="starUser1" class="user">50%</div>
+	<br style="clear: both;">
+
+	<ul id="star2" class="star" onmousedown="star.update(event,this)" onmousemove="star.mouse(event,this)" title="Rate This!">
+		<li id="starCur2" class="curr" title="99" style="width: 83px;"></li>
+	</ul>
+	
+	<div style="color: rgb(136, 136, 136);" id="starUser2" class="user">99%</div>
+	<br style="clear: both;">
+
+	<ul id="star3" class="star" onmousedown="star.update(event,this)" onmousemove="star.mouse(event,this)" title="Rate This!">
+		<li id="starCur3" class="curr" title="70" style="width: 59px;"></li>
+	</ul>
+
+	<div style="color: rgb(136, 136, 136);" id="starUser3" class="user">70%</div>
+	<br style="clear: both;">
+
+	<ul id="star4" class="star" onmousedown="star.update(event,this)" onmousemove="star.mouse(event,this)" title="Rate This!">
+		<li id="starCur4" class="curr" title="30" style="width: 25px;"></li>
+	</ul>
+	<div style="color: rgb(136, 136, 136);" id="starUser4" class="user">30%</div>
+</div>
+
+</body>
+</html>
